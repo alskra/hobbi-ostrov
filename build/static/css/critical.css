@@ -3364,6 +3364,101 @@ tbody.collapse.in {
     overflow: hidden;
   }
 }
+.menu {
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.2;
+  text-transform: uppercase;
+  background-color: #90c04b;
+}
+.menu__item_current>.menu__btn {
+  background-color: #6f9d39;
+}
+.menu__btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+  text-decoration: none;
+  padding: 16px 10px;
+  color: inherit;
+}
+.menu__btn:hover,
+.menu__btn:focus {
+  text-decoration: none;
+  color: #fff;
+  background-color: #6f9d39;
+}
+.menu__label {
+  -webkit-box-flex: 1;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+@media (min-width: 1024px) {
+  .menu {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .menu__item {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    text-align: center;
+    overflow: hidden;
+  }
+}
+.social-networks {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-flow: row wrap;
+  flex-flow: row wrap;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+.social-networks__item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  color: #6e6e6e;
+  text-decoration: none;
+  margin: 6px 11px;
+  font-size: 14px;
+  line-height: 1em;
+  width: 20px;
+  height: 20px;
+}
+.social-networks__item:before {
+  display: block;
+}
+.social-networks__item.icon-instagram {
+  font-size: 16px;
+  padding-top: 1px;
+}
+.social-networks__item:hover,
+.social-networks__item:focus {
+  color: #6f9d39;
+  text-decoration: none;
+}
 .slick-slide:focus,
 .slick-arrow:focus,
 .slick-dots button:focus,

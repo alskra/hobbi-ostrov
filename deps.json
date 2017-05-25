@@ -7,6 +7,8 @@
     "markup/components/content",
     "markup/components/footer",
     "markup/components/grid",
+    "markup/components/menu",
+    "markup/components/social-networks",
     "markup/components/slick-slider",
     "markup/components/section"
   ],
