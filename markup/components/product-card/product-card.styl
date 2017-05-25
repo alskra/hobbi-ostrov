@@ -1,0 +1,87 @@
+.product-card
+  &__brand
+    height 40px
+    display flex
+    flex-flow column
+    justify-content center
+    align-items flex-start
+    margin-bottom 25px
+  &__brand-img
+    max-width 100%
+    max-height 100%
+  &__title
+    font-size 22px
+    margin 0 0 18px
+  &__price-box
+    margin-bottom 25px
+    font-size 26px
+    line-height 1em
+  &__price
+    display inline-block
+    font-size 26px
+    line-height 1em
+    font-weight 500
+    vertical-align top
+    .fa-rub
+      display inline
+      font-size 24px
+      font-weight 300
+    &_new
+      color $red-1
+      margin-right 15px
+    &_old
+      color #d4d4d4
+      font-size 18px
+      text-decoration line-through
+      .fa
+        font-size 17px
+  &__character-row
+    margin-bottom 22px
+    font-size 12px
+    line-height 1.25em
+    .color-item
+      margin-right 15px
+    .select
+      width 100%
+      margin-top 12px
+  &__label
+    text-transform uppercase
+    font-weight 500
+    margin-right 15px
+  &__description
+    font-size 14px
+    line-height (18/14)
+    .ul-list
+      margin-bottom 25px
+      >li
+        padding 0 0 20px
+        page-break-inside avoid
+        &:before
+          content normal
+  &__reviews
+    font-size 14px
+    line-height (18/14)
+  &__description-text
+    margin-bottom 25px
+
+
+  @media (min-width $screen-sm-min)
+    &__col
+      &_1
+        float right
+        clear right
+        width unquote('calc(' + percentage(268/728) + ' - 17px)')
+      &_2
+        float left
+        width unquote('calc(' + percentage(460/728) + ' - 17px)')
+    &__description
+      .ul-list
+        column-count 2
+        column-gap 20px
+
+  @media (min-width $screen-md-min)
+    &__col
+      &_1
+        width unquote('calc(' + percentage(390/1130) + ' - 25px)')
+      &_2
+        width unquote('calc(' + percentage(740/1130) + ' - 25px)')

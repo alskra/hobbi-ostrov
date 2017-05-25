@@ -1,0 +1,29 @@
+.section
+  margin-bottom 20px
+  &__header
+    padding 15px 0 35px
+
+  &__title
+    text-align center
+    margin 0
+    font-size 22px
+    line-height 1.25
+    display flex
+    justify-content center
+    align-items center
+    text-transform uppercase
+    &:before, &:after
+      content ''
+      border-top 1px solid $green-3
+      margin 0 15px
+      flex none
+      width 30px
+
+  &__title-inner
+    overflow hidden
+
+  @media (min-width $screen-md-min)
+    &__title
+      &:before, &:after
+        width 80px
+

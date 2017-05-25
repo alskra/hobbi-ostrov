@@ -1,0 +1,10 @@
+include ../components/doctype/doctype
+include ../components/header/header
+include ../components/content/content
+include ../components/footer/footer
+
++doctype(pages.index.title)._main
+  .-wrapper
+    +header(true, [pages.index.url])
+    +content
+    +footer

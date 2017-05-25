@@ -1,0 +1,20 @@
+include ../product-item/product-item
+
+-
+  var products = [
+    {img: 'static/img/content/Пряжа BBB Zarra.jpg', title: 'Пряжа BBB Zarra', price: ['300', '240'], incart: false, available: true, infavorites: true},
+    {img: 'static/img/content/t_458915436-300x300.jpg', title: 'Очень качественная пряжа BBB Zarrina', price: ['1300', '1240'], incart: true, available: true, infavorites: false},
+    {img: 'static/img/content/item_287-400x400.jpg', title: 'Пряжа BBB Zarra', price: ['300', '240'], incart: false, available: false, infavorites: false},
+    {img: 'static/img/content/t_458915436-230x218.jpg', title: 'Очень качественная пряжа BBB Zarrina', price: ['1300', '1240'], incart: false, available: true, infavorites: false},
+
+    {img: 'static/img/content/Пряжа BBB Zarra.jpg', title: 'Пряжа BBB Zarra', price: ['300', '240'], incart: false, available: true, infavorites: false},
+    {img: 'static/img/content/t_458915436-300x300.jpg', title: 'Очень качественная пряжа BBB Zarrina', price: ['1300', '1240'], incart: false, available: true, infavorites: false},
+    {img: 'static/img/content/item_287-400x400.jpg', title: 'Пряжа BBB Zarra', price: ['300', '240'], incart: false, available: true, infavorites: false}
+  ]
+
+mixin products-list(data, category, slick)
+  // Products-list
+  .-products-list&attributes(attributes)
+    each item, index in data
+      +product-item(item, category, slick)
+  // /Products-list

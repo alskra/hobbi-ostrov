@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html class="no-js" lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main — hobbi-ostrov</title>
+    <!-- Favicons-->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#6f9d39">
+    <meta name="msapplication-TileColor" content="#6f9d39">
+    <meta name="msapplication-TileImage" content="/mstile-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <!-- Critical CSS-->
+    <link href="static/css/critical.css" rel="stylesheet" media="all">
+    <!-- CSS-->
+    <link href="static/css/main.css" rel="stylesheet" media="none">
+    <script>// ObjectFit
+function objectFit(img){
+    img.style.visibility = 'visible';
+    if (document.documentElement.style.objectFit !== undefined)
+        img.style.backgroundImage = 'url("' + img.src + '")'; img.style.paddingLeft = '100%';
+}
+
+    </script>
+  </head>
+  <body class="page page_main">
+    <div class="wrapper">
+      <!-- Header-->
+      <header class="header">
+        <div class="grid grid_1 container-fluid">
+          <div class="row">
+            <div class="grid__col grid__col_1 hidden-xs hidden-sm"><a href="home.html" class="header__logo"><img src="static/img/general/logo_hobbi.svg" title="Хобби-таемый остров" alt="Хобби-таемый остров" class="header__logo-img"></a></div>
+            <div class="grid__col grid__col_2">
+              <div class="row">
+                <div class="col-md-6">
+                  <form action="" class="header__search">
+                    <div class="header__search-inner">
+                      <input type="search" placeholder="Поиск по товарам" class="header__search-field">
+                      <button class="header__search-btn btn gly gly-search" type="submit"></button>
+                    </div>
+                  </form>
+                </div>
+                <div class="col-xs-12 col-md-3">
+                  <button class="header__btn-menu btn hidden-md hidden-lg" type="button"><span></span></button>
+                  <button class="header__btn-search btn hidden-md hidden-lg" type="button"><span class="btn__icon gly gly-search"></span></button><a class="header__btn-favorites header__btn-favorites_active btn" href="javascript:;" data-amount="127"><span class="btn__icon icon-heart-empty"></span></a><a class="header__btn-cart header__btn-cart_active btn" href="javascript:;" data-amount="14"><span class="btn__icon gly gly-cart"></span></a><a class="header__logo hidden-md hidden-lg" href="home.html"><img src="static/img/general/logo_hobbi-xs.svg" title="Хобби-таемый остров" alt="Хобби-таемый остров" class="header__logo-img"></a>
+                </div>
+                <div class="col-md-3 hidden-xs hidden-sm">
+                  <address class="header__address">
+                    <div class="header__address-str"><small>Приём звонков 10:00-18:00&nbsp;*</small><br><small><small>*&nbsp;Пн-Пт: время московское</small></small></div>
+                    <div class="header__address-str header__address-str_1"><strong><a href="tel:+ 79999999999">+ 7 (999) 999 99 99</a></strong></div>
+                    <div class="header__address-str"><a href="mailto:mail@mail.ru">mail@mail.ru</a>
+                    </div>
+                  </address>
+                </div>
+              </div>
+              <div class="header__hidden">
+                <div class="header__hidden-top">
+                  <div class="header__location dropdown">
+                    <div class="btn dropdown-toggle" data-toggle="dropdown"><span class="btn__icon icon-location-inv hidden-md hidden-lg"></span><span class="btn__label"><span class="hidden-xs hidden-sm">Ваш город:&nbsp;&nbsp;</span><span class="header__location-name">Краснодар</span></span><span class="btn__icon icon-down-open-mini hidden-xs hidden-sm"></span></div>
+                    <ul class="dropdown-menu">
+                      <li><a href="javascript:;">Другой город</a>
+                      </li>
+                      <li class="active"><a href="javascript:;">Краснодар</a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="header__user-options"><span class="icon-user-1"></span><a href="javascript:;" class="header__btn-sign">А. Длиннофамильнов</a><span class="header__btn-sep"></span><a href="javascript:;" class="header__btn-sign">Выход</a>
+                  </div>
+                  <!-- Social-networks-->
+                  <div class="social-networks hidden-xs hidden-sm"><a class="social-networks__item icon-vkontakte" href="javascript:;" target="_blank" title="VK"></a><a class="social-networks__item icon-facebook-6" href="javascript:;" target="_blank" title="Facebook"></a><a class="social-networks__item icon-instagram" href="javascript:;" target="_blank" title="Instagram"></a>
+                  </div>
+                  <!-- /Social-networks-->
+                </div>
+                <!-- Menu-->
+                <nav class="menu">
+                  <div class="menu__item menu__item_lvl_1 menu__item_current"><a href="index.html" class="menu__btn menu__btn_lvl_1"><span class="menu__label menu__label_lvl_1">Главная</span></a>
+                  </div>
+                  <div class="menu__item menu__item_lvl_1"><a href="javascript:;" class="menu__btn menu__btn_lvl_1"><span class="menu__label menu__label_lvl_1">Доставка</span></a>
+                  </div>
+                  <div class="menu__item menu__item_lvl_1"><a href="javascript:;" class="menu__btn menu__btn_lvl_1"><span class="menu__label menu__label_lvl_1">Оплата</span></a>
+                  </div>
+                  <div class="menu__item menu__item_lvl_1"><a href="javascript:;" class="menu__btn menu__btn_lvl_1"><span class="menu__label menu__label_lvl_1">Акции</span></a>
+                  </div>
+                  <div class="menu__item menu__item_lvl_1"><a href="javascript:;" class="menu__btn menu__btn_lvl_1"><span class="menu__label menu__label_lvl_1">Новости</span></a>
+                  </div>
+                  <div class="menu__item menu__item_lvl_1"><a href="javascript:;" class="menu__btn menu__btn_lvl_1"><span class="menu__label menu__label_lvl_1">Контакты</span></a>
+                  </div>
+                </nav>
+                <!-- /Menu-->
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+      <!-- /Header-->
+      <!-- Content-->
+      <main class="content">
+      </main>
+      <!-- /Content-->
+      <!-- Footer-->
+      <footer class="footer">
+        <div class="container-fluid"></div>
+      </footer>
+      <!-- /Footer-->
+    </div>
+    <!-- JS-->
+    <script src="static/js/main.js" defer=""></script>
+  </body>
+</html>

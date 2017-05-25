@@ -1,0 +1,29 @@
+include ../components/doctype/doctype
+include ../components/header/header
+include ../components/content/content
+include ../components/footer/footer
+include ../components/products-list/products-list
+
++doctype(pages.index.title)._main
+  .-wrapper
+    +header(false, [pages.index.url])
+    +content
+      .container-fluid.-grid._1
+        .row
+          .-grid.__col._1.hidden-xs.hidden-sm
+          .-grid.__col._2
+            section.-section._1
+              header.__header
+                h2.__title: span.__title-inner Новинки
+              +products-list(products, 'new', true)._slick.slick-slider
+
+            section.-section._1
+              header.__header
+                h2.__title: span.__title-inner Хиты продаж
+              +products-list(products, 'hit', true)._slick.slick-slider
+
+            section.-section._1
+              header.__header
+                h2.__title: span.__title-inner Распродажа
+              +products-list(products, 'sale', true)._slick.slick-slider
+    +footer

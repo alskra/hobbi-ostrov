@@ -1,0 +1,126 @@
+.menu-foot
+  margin 0 -10px
+  border-bottom 1px solid #e2e2e2
+  padding 0
+  &__item
+    &_lvl_1
+      margin-top 1px
+      &:first-child
+        margin-top 0
+    &_lvl_2
+      margin-top 1px
+    &_submenu
+      &>{$p}__btn
+        &>{$p}__icon
+          position relative
+          &:before, &:after
+            content ''
+            position absolute
+            width 17px
+            border-top 1px solid
+            top 50%
+            left 0
+            border-radius 1px
+            transition inherit
+          &:after
+            transform rotate(90deg)
+    &_current
+      &>{$p}__btn
+        color #888
+        background-color #e7e7e7
+        &>{$p}__icon
+          color #888
+    &_opened
+      &>{$p}__btn
+        &, &:hover, &:focus
+          color white
+          background-color #333
+          &>{$p}__icon
+            color white
+            &:after
+              transform rotate(0deg)
+  &__btn
+    text-decoration none !important
+    color #2c2c2c
+    background-color #f3f3f3
+    font-size 16px
+    line-height 1.1em
+    text-transform uppercase
+    font-weight 500
+    display flex
+    padding 5px 20px
+    height 41px
+    transition 0.2s
+    &:hover, &:focus
+      color #888
+      background-color #e7e7e7
+      &>{$p}__icon
+        color #888
+  &__label
+    flex 1 1 auto
+    display block
+    text-overflow ellipsis
+    align-self center
+    margin-top 1px
+  &__icon
+    flex none
+    width 17px
+    display flex
+    justify-content center
+    align-items center
+    color #333
+    font-size 15px
+    transition inherit
+  &__submenu
+    display none
+
+  @media (min-width $screen-sm-min)
+    margin 0
+    border-bottom 0
+    &__item
+      &_lvl_1
+        margin-top 0
+        margin-bottom 20px
+        float left
+        padding 0 10px
+        width 50%
+      &_lvl_2
+        margin-top 0
+        margin-bottom 16px
+      &_current
+        &>{$p}__btn
+          color $red-1
+          background-color transparent
+      &_opened
+        &>{$p}__btn
+          &, &:hover, &:focus
+            color #2c2c2c
+            background-color transparent
+    &__btn
+      color #888
+      background-color transparent
+      font-size 13px
+      line-height 1.25em
+      display inline
+      padding 0
+      height auto
+      transition 0.15s
+      &:hover, &:focus
+        color $red-1
+        background-color transparent
+      &_lvl_1
+        &, &:hover, &:focus
+          color #2c2c2c
+          font-weight 700
+          font-size 16px
+          cursor default
+    &__label
+      white-space normal
+      margin-top 0
+      display inline
+    &__icon
+      display none
+    &__submenu
+      display block !important
+      height auto !important
+      margin-top 32px !important

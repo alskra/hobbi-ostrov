@@ -1,0 +1,99 @@
+@keyframes animate-slider
+  0%
+    left 50%
+  33%
+    left 0%
+  66%
+    left 100%
+  100%
+    left 50%
+
+@keyframes animate-after
+  0%
+    width unquote('calc(38px + 1.28px*50)')
+  33%
+    width 38px
+  66%
+    width unquote('calc(38px + 1.28px*100)')
+  100%
+    width unquote('calc(38px + 1.28px*50)')
+
+
+.car-example
+  width 889px
+  height 533px
+  background inline-image("car-example-model.png") no-repeat
+  margin -250px -889px 45px -345px
+  float left
+  position relative
+  pointer-events none
+  &__after
+    width 38px
+    width unquote('calc(38px + 1.28px*50)')
+    height 113px
+    position absolute
+    top 261px
+    left 539px
+    background inline-image("posle.png") no-repeat
+  &__slider
+    position absolute
+    size 214px 29px
+    background-color $red-1
+    border-radius 15px
+    right 141px
+    bottom -20px
+    border-width 2px 44px
+    border-style solid
+    border-color transparent
+    pointer-events auto
+    z-index 1
+    &:before, &:after
+      color white
+      font-size 16px
+      line-height 1em
+      position absolute
+      top 100%
+      margin-top 6px
+    &:before
+      content 'до'
+      left -27px
+    &:after
+      content 'после'
+      right -27px
+  &__slider-handle
+    position absolute
+    left 50%
+    size 84px 25px
+    background-color #c10311
+    background-image linear-gradient(180deg, white 0%, #979797 100%)
+    border-radius 13px
+    margin 0 -42px
+    display flex
+    align-items center
+    justify-content center
+    cursor pointer
+    &:before, &:after, &>span
+      content ''
+      square 8px
+      border 3px solid white
+      box-shadow 0 1px 1px #717171
+      background #717171
+      border-radius 50%
+      margin 0 2px
+    &>span
+      &:before
+        content ''
+        position absolute
+        size 2px 294px
+        background-color $red-1
+        left 50%
+        bottom 0
+        margin 0 -1px -8px
+        z-index -1
+    &:focus
+      outline none
+  &_load
+    & {$p}__after
+      animation animate-after 2.5s ease-in-out
+    & {$p}__slider-handle
+      animation animate-slider 2.5s ease-in-out

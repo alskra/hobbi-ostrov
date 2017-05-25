@@ -1,0 +1,35 @@
+.menu
+  color white
+  font-size 15px
+  font-weight 700
+  line-height round(18/15, 2)
+  text-transform uppercase
+  background-color #90c04b
+
+  &__item
+    &_current
+      &>{$p}__btn
+        background-color #6f9d39
+
+  &__btn
+    display flex
+    align-items flex-start
+    text-decoration none
+    padding 16px 10px
+    color inherit
+    &:hover, &:focus
+      text-decoration none
+      color white
+      background-color #6f9d39
+
+  &__label
+    flex 1 1 auto
+    text-overflow ellipsis
+
+  @media (min-width $screen-md-min)
+    display flex
+
+    &__item
+      flex 1 1 auto
+      text-align center
+      overflow hidden

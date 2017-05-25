@@ -1,0 +1,17 @@
+.grid
+  &_1
+    & {$p}__col
+      padding 0 10px
+  @media (min-width $screen-md-min)
+    &_1
+      >.row
+        display flex
+        &:before, &:after
+          content normal
+      & {$p}__col
+        &_1
+          flex none
+          width 230px
+        &_2
+          flex 1 1 auto
+          overflow hidden
