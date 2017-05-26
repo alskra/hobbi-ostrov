@@ -188,61 +188,12 @@ gulp.task('html', gulp.series(
     }
 ));
 
-gulp.task('css:critical', gulp.series(
+gulp.task('css', gulp.series(
     function () {
         var deps = JSON.parse(fs.readFileSync(depsData));
         const fStyl = filter('**/*.styl', {restore: true});
         return combiner(
-            gulp.src(deps.css_critical.concat(deps.components_critical.map(function (dep) {
-                return path.join(dep, '*.styl');
-            }))),
-            gulpIf(isDevelopment, sourcemaps.init()),
-            fStyl,
-            concat({path: 'critical.styl'}),
-            stylus({
-                'include css': true,
-                use: [autoprefixer({
-                    browsers: ['last 2 versions', 'ie >= 10'],
-                    cascade: false
-                })]
-            }),
-            fStyl.restore,
-            concat({path: 'critical.css'}),
-            gulpIf(isDevelopment, sourcemaps.write()),
-            debug({title: 'CSS:critical'}),
-            gulp.dest('build/static/css/')
-        ).on('error', notify.onError(function(err) {
-            return {
-                title: 'CSS:critical',
-                message: err.message
-            }
-        }));
-    },
-    function (done) {
-        return combiner(
-            gulp.src('build/static/css/critical.css'),
-            gulpIf(!isDevelopment, cleanCSS()),
-            rename({suffix: '.min'}),
-            debug({title: 'CSS:critical.min'}),
-            gulp.dest('build/static/css/')
-        ).on('error', notify.onError(function(err) {
-            return {
-                title: 'CSS:critical.min',
-                message: err.message
-            }
-        }));
-    }
-));
-
-gulp.task('css:main', gulp.series(
-    function () {
-        var deps = JSON.parse(fs.readFileSync(depsData));
-        var negativeCritical = deps.css_critical.map(function (dep) {return '!' + dep;}).concat(deps.components_critical.map(function (dep) {
-            return '!' + path.join(dep, '*.styl');
-        }));
-        const fStyl = filter('**/*.styl', {restore: true});
-        return combiner(
-            gulp.src(deps.css_src.concat(depsArr.map(function (dep) {return path.join(dep, '*.styl');})).concat(negativeCritical)),
+            gulp.src(deps.css_src.concat(depsArr.map(function (dep) {return path.join(dep, '*.styl');}))),
             gulpIf(isDevelopment, sourcemaps.init()),
             fStyl,
             concat({path: 'main.styl'}),
@@ -256,11 +207,11 @@ gulp.task('css:main', gulp.series(
             fStyl.restore,
             concat({path: 'main.css'}),
             gulpIf(isDevelopment, sourcemaps.write()),
-            debug({title: 'CSS:main'}),
+            debug({title: 'CSS'}),
             gulp.dest('build/static/css/')
         ).on('error', notify.onError(function(err) {
             return {
-                title: 'CSS:main',
+                title: 'CSS',
                 message: err.message
             }
         }));
@@ -271,11 +222,11 @@ gulp.task('css:main', gulp.series(
                 gulp.src('build/static/css/main.css'),
                 cleanCSS(),
                 rename({suffix: '.min'}),
-                debug({title: 'CSS:main.min'}),
+                debug({title: 'CSS:min'}),
                 gulp.dest('build/static/css/')
             ).on('error', notify.onError(function(err) {
                 return {
-                    title: 'CSS:main.min',
+                    title: 'CSS:min',
                     message: err.message
                 }
             }));
@@ -286,7 +237,7 @@ gulp.task('css:main', gulp.series(
     }
 ));
 
-gulp.task('js:main', gulp.series(
+gulp.task('js', gulp.series(
     function () {
         var deps = JSON.parse(fs.readFileSync(depsData));
         return combiner(
@@ -294,11 +245,11 @@ gulp.task('js:main', gulp.series(
             gulpIf(isDevelopment, sourcemaps.init()),
             concat({path: 'main.js'}),
             gulpIf(isDevelopment, sourcemaps.write()),
-            debug({title: 'JS:main'}),
+            debug({title: 'JS'}),
             gulp.dest('build/static/js/')
         ).on('error', notify.onError(function(err) {
             return {
-                title: 'JS:main',
+                title: 'JS',
                 message: err.message
             }
         }));
@@ -309,11 +260,11 @@ gulp.task('js:main', gulp.series(
                 gulp.src('build/static/js/main.js'),
                 uglify(),
                 rename({suffix: '.min'}),
-                debug({title: 'JS:main.min'}),
+                debug({title: 'JS:min'}),
                 gulp.dest('build/static/js/')
             ).on('error', notify.onError(function(err) {
                 return {
-                    title: 'JS:main.min',
+                    title: 'JS:min',
                     message: err.message
                 }
             }));
@@ -324,28 +275,7 @@ gulp.task('js:main', gulp.series(
     }
 ));
 
-gulp.task('img:critical', function() {
-    var deps = JSON.parse(fs.readFileSync(depsData));
-    return combiner(
-        gulp.src(deps.components_critical.map(function (dep) {return path.join(dep, '*.{png,jp*g,gif,svg}');})),
-        newer('build/static/img/general/'),
-        imagemin([
-            imagemin.gifsicle({interlaced: true}),
-            imageminJpegoptim({progressive: true, max: 80}),
-            imagemin.optipng({optimizationLevel: 5}),
-            imagemin.svgo({plugins: [{removeViewBox: false}]})
-        ]),
-        debug({title: 'IMG:critical'}),
-        gulp.dest('build/static/img/general/')
-    ).on('error', notify.onError(function(err) {
-        return {
-            title: 'IMG:critical',
-            message: err.message
-        }
-    }));
-});
-
-gulp.task('img:main', function() {
+gulp.task('img', function() {
     return combiner(
         gulp.src(['markup/static/img/content/**/*.{png,jp*g,gif,svg}'].concat(depsArr.map(function (dep) {return path.join(dep, '*.{png,jp*g,gif,svg}');}))),
         newer('build/static/img/content/'),
@@ -356,13 +286,13 @@ gulp.task('img:main', function() {
             imagemin.optipng({optimizationLevel: 5}),
             imagemin.svgo({plugins: [{removeViewBox: false}]})
         ]),
-        debug({title: 'IMG:main'}),
+        debug({title: 'IMG'}),
         gulp.dest(function (file) {
             return file.base.indexOf(path.resolve('markup/static/img/content/')) !== -1 ? 'build/static/img/content/' : 'build/static/img/general/';
         })
     ).on('error', notify.onError(function(err) {
         return {
-            title: 'IMG:main',
+            title: 'IMG',
             message: err.message
         }
     }));
@@ -457,20 +387,20 @@ gulp.task('clean', function() {
     return del(['build/']);
 });
 
-gulp.task('build', gulp.series('clean', gulp.parallel('generate-favicon', 'fonts', 'fontawesome', 'glyphicons', 'img:critical', 'misc'),
-    'css:critical', 'html', 'img:main', gulp.parallel('css:main', 'js:main')));
+gulp.task('build', gulp.series('clean', gulp.parallel('generate-favicon', 'fonts', 'fontawesome', 'glyphicons', 'misc'),
+    'html', 'img', gulp.parallel('css', 'js')));
 
 gulp.task('watch', function() {
     global.isWatch = true;
 
-    gulp.watch('markup/**/*.pug', gulp.series('html', 'img:main', gulp.parallel('css:main', 'js:main')))
+    gulp.watch('markup/**/*.pug', gulp.series('html', 'img', gulp.parallel('css', 'js')))
         .on('all', function(event, filepath) {
             global.emittyChangedFile = filepath;
         });
-    gulp.watch([pkgData, depsData], gulp.series('img:critical', 'css:critical', 'html', gulp.parallel('css:main', 'js:main', 'fonts')));
-    gulp.watch(['markup/**/*.{css,styl}', 'app_components/**/*.{css,styl}'], gulp.parallel('css:critical', 'css:main'));
-    gulp.watch(['markup/**/*.js', 'app_components/**/*.js'], gulp.series('js:main'));
-    gulp.watch(['markup/**/*.{png,jp*g,gif,svg}'], gulp.parallel('img:critical', 'img:main'));
+    gulp.watch([pkgData, depsData], gulp.series('html', gulp.parallel('css', 'js', 'fonts')));
+    gulp.watch(['markup/**/*.{css,styl}', 'app_components/**/*.{css,styl}'], gulp.series('css'));
+    gulp.watch(['markup/**/*.js', 'app_components/**/*.js'], gulp.series('js'));
+    gulp.watch(['markup/**/*.{png,jp*g,gif,svg}'], gulp.series('img'));
     gulp.watch(['markup/static/fonts/glyphicons/icons/*.svg'], gulp.series('glyphicons'));
     gulp.watch(['markup/static/misc/**/*.*'], gulp.series('misc'));
 });

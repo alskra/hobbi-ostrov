@@ -1,29 +1,12 @@
 {
-  "components_critical": [
-    "markup/components/page",
-    "markup/components/wrapper",
-    "markup/components/container-fluid",
-    "markup/components/header",
-    "markup/components/content",
-    "markup/components/footer",
-    "markup/components/grid",
-    "markup/components/menu",
-    "markup/components/social-networks",
-    "markup/components/slick-slider",
-    "markup/components/section"
-  ],
-  "css_critical": [
-    "app_components/bootstrap/css/index.styl",
-    "app_components/img-object-fit/img-object-fit.styl",
-    "bower_components/slick-carousel/slick/slick.css"
-  ],
   "css_src": [
     "markup/static/fonts/google-fonts/google-fonts.css",
     "markup/static/fonts/rouble/rouble.css",
     "markup/static/fonts/fontello/fontello.css",
     "markup/static/fonts/glyphicons/glyphicons.css",
-    "app_components/bootstrap/css/variables.styl",
-    "app_components/bootstrap/css/mixins.styl"
+    "app_components/img-object-fit/img-object-fit.css",
+    "bower_components/slick-carousel/slick/slick.css",
+    "app_components/bootstrap/css/index.styl"
   ],
   "js_src": [
     "app_components/modernizr/modernizr-custom.js",

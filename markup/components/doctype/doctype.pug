@@ -12,14 +12,9 @@ mixin doctype(title)
       // Favicons
       each favicon in faviconCode.split('\n')
         != '\n    ' + favicon
-      // Critical CSS
-      if isDevelopment
-        link(href="static/css/critical.css" rel="stylesheet" media="all")
-      else
-        style
-          include ../../../build/static/css/critical.min.css
       // CSS
-      link(href="static/css/main" + (isDevelopment ? '' : '.min') + ".css" rel="stylesheet" media="none")
+      link(href="static/css/main" + (isDevelopment ? '' : '.min') + ".css" rel="stylesheet" media="all")
+      // JS Inline
       script
         include ../../../app_components/img-object-fit/img-object-fit.js
     body.-page&attributes(attributes)

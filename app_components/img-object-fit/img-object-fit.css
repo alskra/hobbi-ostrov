@@ -1,4 +1,4 @@
-[data-object-fit]
+[data-object-fit] {
   width: 100%;
   height: 100%;
   background-repeat: no-repeat;
@@ -6,7 +6,9 @@
   background-size: cover;
   object-fit: cover;
   visibility: hidden;
+}
 
-[data-object-fit='contain']
+[data-object-fit='contain'] {
   background-size: contain;
   object-fit: contain;
+}
