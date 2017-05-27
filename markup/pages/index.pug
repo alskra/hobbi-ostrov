@@ -3,6 +3,7 @@ include ../components/header/header
 include ../components/content/content
 include ../components/footer/footer
 include ../components/products-list/products-list
+include ../components/vk-widget/vk-widget
 
 +doctype(pages.index.title)._main
   .-wrapper
@@ -10,7 +11,10 @@ include ../components/products-list/products-list
     +content
       .container-fluid.-grid._1
         .row
-          .-grid.__col._1.hidden-xs.hidden-sm
+          aside.-grid.__col._1.hidden-xs.hidden-sm
+            nav.-menu-catalogue
+
+            +vk-widget()
           .-grid.__col._2
             section.-section._1
               header.__header
@@ -26,4 +30,5 @@ include ../components/products-list/products-list
               header.__header
                 h2.__title: span.__title-inner Распродажа
               +products-list(products, 'sale', true)._slick.slick-slider
+
     +footer

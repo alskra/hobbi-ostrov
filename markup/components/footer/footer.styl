@@ -1,4 +1,20 @@
 .footer
   flex none
+  background-color #e4e2e2
+
+  &__top
+    background url("footer-bg-sm.jpg") no-repeat 50% 0/cover #e4e2e2
+    padding 30px 0
+    position relative
+    overflow hidden
+
+    @media $media-retina
+      background-image url("footer-bg-sm@2x.jpg")
+
+  &__bottom
+    background-color #848484
+
+  @media (min-width $screen-md-min)
+    //
 
 

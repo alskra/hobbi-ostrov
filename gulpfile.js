@@ -14,6 +14,7 @@ const filter = require('gulp-filter');
 const del = require('del');
 const newer = require('gulp-newer');
 const browserSync = require('browser-sync').create();
+const reload = browserSync.reload;
 const notify = require('gulp-notify');
 const combiner = require('stream-combiner2').obj;
 const pug = require('gulp-pug');
@@ -38,6 +39,8 @@ const merge = require('merge-stream');
 global.isDevelopment = process.env.NODE_ENV !== 'production';
 global.depsObj = {};
 global.depsArr = [];
+
+const browsers = ['last 2 versions', 'ie >= 10'];
 
 const pkgData = 'package.json';
 const depsData = 'deps.json';
@@ -188,92 +191,119 @@ gulp.task('html', gulp.series(
     }
 ));
 
-gulp.task('css', gulp.series(
-    function () {
-        var deps = JSON.parse(fs.readFileSync(depsData));
-        const fStyl = filter('**/*.styl', {restore: true});
-        return combiner(
-            gulp.src(deps.css_src.concat(depsArr.map(function (dep) {return path.join(dep, '*.styl');}))),
-            gulpIf(isDevelopment, sourcemaps.init()),
-            fStyl,
-            concat({path: 'main.styl'}),
-            stylus({
-                'include css': true,
-                use: [autoprefixer({
-                    browsers: ['last 2 versions', 'ie >= 10'],
-                    cascade: false
-                })]
-            }),
-            fStyl.restore,
-            concat({path: 'main.css'}),
-            gulpIf(isDevelopment, sourcemaps.write()),
-            debug({title: 'CSS'}),
-            gulp.dest('build/static/css/')
-        ).on('error', notify.onError(function(err) {
-            return {
-                title: 'CSS',
-                message: err.message
-            }
-        }));
-    },
-    function (done) {
-        if (!isDevelopment) {
-            return combiner(
-                gulp.src('build/static/css/main.css'),
-                cleanCSS(),
-                rename({suffix: '.min'}),
-                debug({title: 'CSS:min'}),
-                gulp.dest('build/static/css/')
-            ).on('error', notify.onError(function(err) {
-                return {
-                    title: 'CSS:min',
-                    message: err.message
-                }
-            }));
+gulp.task('css:components', function () {
+    var deps = JSON.parse(fs.readFileSync(depsData));
+    const filterStyl = filter('**/*.styl', {restore: true});
+    return combiner(
+        gulp.src(deps.css_src),
+        sourcemaps.init(),
+        filterStyl,
+        concat({path: 'components.styl'}),
+        stylus({
+            'include css': true,
+            use: [autoprefixer({
+                browsers: browsers,
+                cascade: false
+            })]
+        }),
+        filterStyl.restore,
+        concat({path: 'components.css'}),
+        sourcemaps.write(),
+        debug({title: 'CSS:components'}),
+        gulp.dest('build/static/css/')
+    ).on('error', notify.onError(function(err) {
+        return {
+            title: 'CSS:components',
+            message: err.message
         }
-        else {
-            done();
-        }
-    }
-));
+    }));
+});
 
-gulp.task('js', gulp.series(
-    function () {
-        var deps = JSON.parse(fs.readFileSync(depsData));
-        return combiner(
-            gulp.src(deps.js_src.concat(depsArr.map(function (dep) {return path.join(dep, '*.js');}))),
-            gulpIf(isDevelopment, sourcemaps.init()),
-            concat({path: 'main.js'}),
-            gulpIf(isDevelopment, sourcemaps.write()),
-            debug({title: 'JS'}),
-            gulp.dest('build/static/js/')
-        ).on('error', notify.onError(function(err) {
-            return {
-                title: 'JS',
-                message: err.message
-            }
-        }));
-    },
-    function (done) {
-        if (!isDevelopment) {
-            return combiner(
-                gulp.src('build/static/js/main.js'),
-                uglify(),
-                rename({suffix: '.min'}),
-                debug({title: 'JS:min'}),
-                gulp.dest('build/static/js/')
-            ).on('error', notify.onError(function(err) {
-                return {
-                    title: 'JS:min',
-                    message: err.message
-                }
-            }));
+gulp.task('css:blocks', function () {
+    return combiner(
+        gulp.src(['app_components/bootstrap/css/variables.styl', 'app_components/bootstrap/css/mixins.styl'].concat(depsArr.map(function (dep) {return path.join(dep, '*.styl');}))),
+        sourcemaps.init(),
+        concat({path: 'blocks.styl'}),
+        stylus({
+            'include css': true,
+            use: [autoprefixer({
+                browsers: browsers,
+                cascade: false
+            })]
+        }),
+        sourcemaps.write(),
+        debug({title: 'CSS:blocks'}),
+        gulp.dest('build/static/css/')
+    ).on('error', notify.onError(function(err) {
+        return {
+            title: 'CSS:blocks',
+            message: err.message
         }
-        else {
-            done();
+    }));
+});
+
+gulp.task('css:main', function () {
+    return combiner(
+        gulp.src(['build/static/css/components.css', 'build/static/css/blocks.css']),
+        concat({path: 'main.min.css'}),
+        cleanCSS({level: 1}),
+        debug({title: 'CSS:main'}),
+        gulp.dest('build/static/css/')
+    ).on('error', notify.onError(function(err) {
+        return {
+            title: 'CSS:main',
+            message: err.message
         }
-    }
-));
+    }));
+});
+
+gulp.task('js:components', function () {
+    var deps = JSON.parse(fs.readFileSync(depsData));
+    return combiner(
+        gulp.src(deps.js_src),
+        sourcemaps.init(),
+        concat({path: 'components.js'}),
+        sourcemaps.write(),
+        debug({title: 'JS:components'}),
+        gulp.dest('build/static/js/')
+    ).on('error', notify.onError(function(err) {
+        return {
+            title: 'JS:components',
+            message: err.message
+        }
+    }));
+});
+
+gulp.task('js:blocks', function () {
+    return combiner(
+        gulp.src(depsArr.map(function (dep) {return path.join(dep, '*.js');})),
+        sourcemaps.init(),
+        concat({path: 'blocks.js'}, {newLine: '\n\n'}),
+        sourcemaps.write(),
+        debug({title: 'JS:blocks'}),
+        gulp.dest('build/static/js/')
+    ).on('error', notify.onError(function(err) {
+        return {
+            title: 'JS:blocks',
+            message: err.message
+        }
+    }));
+});
+
+gulp.task('js:main', function () {
+    return combiner(
+        gulp.src(['build/static/js/components.js', 'build/static/js/blocks.js']),
+        concat({path: 'main.min.js'}),
+        uglify(),
+        debug({title: 'JS:main'}),
+        gulp.dest('build/static/js/')
+    ).on('error', notify.onError(function(err) {
+        return {
+            title: 'JS:main',
+            message: err.message
+        }
+    }));
+});
 
 gulp.task('img', function() {
     return combiner(
@@ -387,36 +417,67 @@ gulp.task('clean', function() {
     return del(['build/']);
 });
 
-gulp.task('build', gulp.series('clean', gulp.parallel('generate-favicon', 'fonts', 'fontawesome', 'glyphicons', 'misc'),
-    'html', 'img', gulp.parallel('css', 'js')));
+gulp.task('build', gulp.series('clean', gulp.parallel('generate-favicon', 'glyphicons'),
+    'html', 'img', gulp.parallel('css:components', 'css:blocks', 'js:components', 'js:blocks', 'fonts', 'misc')));
 
+gulp.task('reloadGlobal', function() {
+    return gulp.src('build/**/*.html', {since: gulp.lastRun('reloadGlobal')})
+        .pipe(reload({stream: true}));
+});
+
+//Watchers
 gulp.task('watch', function() {
     global.isWatch = true;
 
-    gulp.watch('markup/**/*.pug', gulp.series('html', 'img', gulp.parallel('css', 'js')))
+    //Global
+    gulp.watch('markup/**/*.pug', gulp.series('html', 'img', gulp.parallel('css:blocks', 'js:blocks'), 'reloadGlobal'))
         .on('all', function(event, filepath) {
             global.emittyChangedFile = filepath;
         });
-    gulp.watch([pkgData, depsData], gulp.series('html', gulp.parallel('css', 'js', 'fonts')));
-    gulp.watch(['markup/**/*.{css,styl}', 'app_components/**/*.{css,styl}'], gulp.series('css'));
-    gulp.watch(['markup/**/*.js', 'app_components/**/*.js'], gulp.series('js'));
-    gulp.watch(['markup/**/*.{png,jp*g,gif,svg}'], gulp.series('img'));
+    gulp.watch([pkgData, depsData], gulp.series('html', gulp.parallel('css:components', 'css:blocks', 'js:components', 'js:blocks', 'fonts'), 'reloadGlobal'));
+
+    //CSS
+    gulp.watch(['app_components/**/*.{css,styl}', 'markup/static/**/*.{css,styl}'], gulp.series('css:components', function reloadCSS_components(done) {
+        reload('build/static/css/components.css'); done();
+    }));
+    gulp.watch(['markup/components/**/*.styl'], gulp.series('css:blocks', function reloadCSS_blocks(done) {
+        reload('build/static/css/blocks.css'); done();
+    }));
+
+    //JS
+    gulp.watch(['app_components/**/*.js'], gulp.series('js:components', function reloadJS_components(done) {
+        reload('build/static/js/blocks.js'); done();
+    }));
+    gulp.watch(['markup/components/**/*.js'], gulp.series('js:blocks', function reloadJS_blocks(done) {
+        reload('build/static/js/blocks.js'); done();
+    }));
+
+    //IMG
+    gulp.watch(['markup/**/*.{png,jp*g,gif,svg}'], gulp.series('img', function reloadIMG(done) {
+        reload('build/static/img/**/*.{png,jp*g,gif,svg}'); done();
+    }));
+
+    //GLYPHICONS
     gulp.watch(['markup/static/fonts/glyphicons/icons/*.svg'], gulp.series('glyphicons'));
-    gulp.watch(['markup/static/misc/**/*.*'], gulp.series('misc'));
+
+    //MISC
+    gulp.watch(['markup/static/misc/**/*.*'], gulp.series('misc', function reloadMISC(done) {
+        reload('markup/static/misc/**/*.*'); done();
+    }));
 });
 
-gulp.task('serve', function() {
+gulp.task('server', function() {
     browserSync.init({
         server: {
             baseDir: 'build/'
         },
-        tunnel: true,
+        tunnel: false,
         host: 'localhost',
         port: 3000,
         logPrefix: 'AlSKra'
     });
 
-    browserSync.watch('build/**/*.*').on('change', browserSync.reload);
+    //browserSync.watch('build/**/*.*').on('change', browserSync.reload);
 });
 
 gulp.task('zip', function () {
@@ -427,7 +488,7 @@ gulp.task('zip', function () {
 });
 
 gulp.task('dev',
-    gulp.series('build', gulp.parallel('watch', 'serve'))
+    gulp.series('build', gulp.parallel('watch', 'server'))
 );
 
 gulp.task('prod', gulp.series(
@@ -435,6 +496,6 @@ gulp.task('prod', gulp.series(
         global.isDevelopment = false;
         done();
     },
-    gulp.series('build', gulp.parallel('serve', 'zip'))
+    gulp.series('build', gulp.parallel('css:main', 'js:main'), gulp.parallel('zip', 'server'))
 ));
 

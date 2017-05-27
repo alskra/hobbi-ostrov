@@ -1,5 +1,14 @@
+include ../form-subscribe/form-subscribe
+
 mixin footer()
   // Footer
   footer.-footer&attributes(attributes)
-    .container-fluid
+    .__top
+      .container-fluid.-grid._2
+        .row
+          .-grid.__col._1
+            +form-subscribe()
+          .-grid.__col._2
+          .-grid.__col._3
+    .__bottom
   // /Footer

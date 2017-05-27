@@ -1,20 +1,20 @@
 {
   "css_src": [
+    "app_components/bootstrap/css/index.styl",
     "markup/static/fonts/google-fonts/google-fonts.css",
     "markup/static/fonts/rouble/rouble.css",
     "markup/static/fonts/fontello/fontello.css",
     "markup/static/fonts/glyphicons/glyphicons.css",
     "app_components/img-object-fit/img-object-fit.css",
-    "bower_components/slick-carousel/slick/slick.css",
-    "app_components/bootstrap/css/index.styl"
+    "bower_components/slick-carousel/slick/slick.css"
   ],
   "js_src": [
     "app_components/modernizr/modernizr-custom.js",
-    "bower_components/jquery/dist/jquery.min.js",
-    "bower_components/jquery-touch-events/src/jquery.mobile-events.min.js",
+    "bower_components/jquery/dist/jquery.js",
+    "bower_components/jquery-touch-events/src/jquery.mobile-events.js",
     "app_components/bootstrap/js/dropdown.js",
-    "bower_components/slick-carousel/slick/slick.min.js",
-    "bower_components/jquery-mask-plugin/dist/jquery.mask.min.js"
+    "bower_components/slick-carousel/slick/slick.js",
+    "bower_components/jquery-mask-plugin/dist/jquery.mask.js"
   ],
   "fonts_src": [
     "markup/static/fonts/rouble",

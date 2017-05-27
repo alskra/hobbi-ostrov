@@ -1,6 +1,9 @@
 // ObjectFit
-function objectFit(img){
-    img.style.visibility = 'visible';
-    if (document.documentElement.style.objectFit !== undefined)
-        img.style.backgroundImage = 'url("' + img.src + '")'; img.style.paddingLeft = '100%';
+function objectFit(img) {
+    var style = img.style;
+    style.visibility = 'visible';
+    if (document.documentElement.style.objectFit === undefined) {
+        style.backgroundImage = 'url("' + img.src + '")';
+        style.paddingLeft = '100%';
+    }
 }

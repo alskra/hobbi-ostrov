@@ -13,12 +13,20 @@ mixin doctype(title)
       each favicon in faviconCode.split('\n')
         != '\n    ' + favicon
       // CSS
-      link(href="static/css/main" + (isDevelopment ? '' : '.min') + ".css" rel="stylesheet" media="all")
+      if isDevelopment
+        link(href="static/css/components.css" rel="stylesheet" media="all")
+        link(href="static/css/blocks.css" rel="stylesheet" media="all")
+      else
+        link(href="static/css/main.min.css" rel="stylesheet" media="all")
       // JS Inline
       script
-        include ../../../app_components/img-object-fit/img-object-fit.js
+        include ../../../app_components/img-object-fit/img-object-fit.min.js
     body.-page&attributes(attributes)
       block
       // JS
       //- script(src='https://maps.googleapis.com/maps/api/js?key=AIzaSyDzOTEh0q0r-2BuVxeLGaNTXJDl-pgA_-4')
-      script(src="static/js/main" + (isDevelopment ? '' : '.min') + ".js" defer)
+      if isDevelopment
+        script(src="static/js/components.js" defer)
+        script(src="static/js/blocks.js" defer)
+      else
+        script(src="static/js/main.min.js" defer)

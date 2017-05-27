@@ -15,16 +15,10 @@
     <meta name="msapplication-TileImage" content="/mstile-144x144.png">
     <meta name="theme-color" content="#ffffff">
     <!-- CSS-->
-    <link href="static/css/main.css" rel="stylesheet" media="all">
+    <link href="static/css/components.css" rel="stylesheet" media="all">
+    <link href="static/css/blocks.css" rel="stylesheet" media="all">
     <!-- JS Inline-->
-    <script>// ObjectFit
-function objectFit(img){
-    img.style.visibility = 'visible';
-    if (document.documentElement.style.objectFit !== undefined)
-        img.style.backgroundImage = 'url("' + img.src + '")'; img.style.paddingLeft = '100%';
-}
-
-    </script>
+    <script>function objectFit(t){var e=t.style;e.visibility="visible",void 0===document.documentElement.style.objectFit&&(e.backgroundImage='url("'+t.src+'")',e.paddingLeft="100%")}</script>
   </head>
   <body class="page page_main">
     <div class="wrapper">
@@ -50,7 +44,7 @@ function objectFit(img){
                 <div class="col-md-3 hidden-xs hidden-sm">
                   <address class="header__address">
                     <div class="header__address-str"><small>Приём звонков 10:00-18:00&nbsp;*</small><br><small><small>*&nbsp;Пн-Пт: время московское</small></small></div>
-                    <div class="header__address-str header__address-str_1"><strong><a href="tel:+ 79999999999">+ 7 (999) 999 99 99</a></strong></div>
+                    <div class="header__address-str header__address-str_1"><strong><a href="tel:+79999999999">+7 (999) 999 99 99</a></strong></div>
                     <div class="header__address-str"><a href="mailto:mail@mail.ru">mail@mail.ru</a>
                     </div>
                   </address>
@@ -97,16 +91,32 @@ function objectFit(img){
       </header>
       <!-- /Header-->
       <!-- Content-->
-      <main class="content">
-      </main>
+      <div class="content">
+      </div>
       <!-- /Content-->
       <!-- Footer-->
       <footer class="footer">
-        <div class="container-fluid"></div>
+        <div class="footer__top">
+          <div class="grid grid_2 container-fluid">
+            <div class="row">
+              <div class="grid__col grid__col_1">
+                <!-- Form-subscribe-->
+                <form action="" class="form-subscribe">
+                  <div class="form-subscribe__title">Узнайте о новых поступлениях</div>
+                </form>
+                <!-- /Form-subscribe-->
+              </div>
+              <div class="grid__col grid__col_2"></div>
+              <div class="grid__col grid__col_3"></div>
+            </div>
+          </div>
+        </div>
+        <div class="footer__bottom"></div>
       </footer>
       <!-- /Footer-->
     </div>
     <!-- JS-->
-    <script src="static/js/main.js" defer=""></script>
+    <script src="static/js/components.js" defer=""></script>
+    <script src="static/js/blocks.js" defer=""></script>
   </body>
 </html>

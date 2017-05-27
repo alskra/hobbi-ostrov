@@ -15,16 +15,10 @@
     <meta name="msapplication-TileImage" content="/mstile-144x144.png">
     <meta name="theme-color" content="#ffffff">
     <!-- CSS-->
-    <link href="static/css/main.css" rel="stylesheet" media="all">
+    <link href="static/css/components.css" rel="stylesheet" media="all">
+    <link href="static/css/blocks.css" rel="stylesheet" media="all">
     <!-- JS Inline-->
-    <script>// ObjectFit
-function objectFit(img){
-    img.style.visibility = 'visible';
-    if (document.documentElement.style.objectFit !== undefined)
-        img.style.backgroundImage = 'url("' + img.src + '")'; img.style.paddingLeft = '100%';
-}
-
-    </script>
+    <script>function objectFit(t){var e=t.style;e.visibility="visible",void 0===document.documentElement.style.objectFit&&(e.backgroundImage='url("'+t.src+'")',e.paddingLeft="100%")}</script>
   </head>
   <body class="page page_home-project">
     <header class="page__header">
@@ -62,6 +56,7 @@ function objectFit(img){
       <div>&nbsp;</div>
     </footer>
     <!-- JS-->
-    <script src="static/js/main.js" defer=""></script>
+    <script src="static/js/components.js" defer=""></script>
+    <script src="static/js/blocks.js" defer=""></script>
   </body>
 </html>

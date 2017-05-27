@@ -1,0 +1,10 @@
+mixin vk-widget()
+  // VK Widget
+  .vk-widget
+    <script type="text/javascript" src="//vk.com/js/api/openapi.js?146"></script>
+
+    <!-- VK Widget -->
+    <div id="vk_groups" class="vk-groups"></div>
+    script(type="text/javascript").
+      VK.Widgets.Group("vk_groups", {mode: 3, color3: '6F9D3A'}, 20003922);
+  // /VK Widget
