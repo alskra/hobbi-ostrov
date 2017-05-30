@@ -1,0 +1,109 @@
+.menu-catalogue
+  display none
+  color white
+  font-size 15px
+  font-weight 700
+  line-height round(18/15, 2)em
+  text-transform uppercase
+  background-color #90c04b
+
+  &__item
+    &_current
+      &>{$p}__btn
+        background-color #6f9d39
+
+    &.opened
+      &>{$p}__btn
+        background-color #6f9d39
+
+      &>{$p}__btn>{$p}__icon
+        &.icon-plus-1
+          display none
+
+        &.icon-minus-1
+          display block
+
+  &__btn
+    display flex
+    align-items flex-start
+    padding 16px 10px
+    color inherit
+    text-decoration none
+    background-color #90c04b
+    &:hover, &:focus
+      color white
+      text-decoration none
+      background-color #6f9d39
+
+  &__label
+    display block
+    flex 1 1 auto
+    text-overflow ellipsis
+
+  &__icon
+    display block
+    flex none
+    font-size 18px
+    text-align center
+    width 20px
+
+    &.icon-minus-1
+      display none
+
+    &.icon-menu-3
+      font-size 15px
+
+  @media (min-width $screen-md-min)
+    margin-bottom 20px
+    background-color #f9f9f9
+
+    &__item
+      &_lvl_2
+        &+&
+          border-top 1px solid #e5e5e5
+
+    &__btn
+      padding 16px 15px
+
+      &_lvl_1
+        background-color #6f9d39
+
+      &_lvl_2
+        color #747474
+        position relative
+        background-color #f9f9f9
+        &:before
+          content ''
+          position absolute
+          top -1px
+          bottom -1px
+          left -1px
+          border-right 5px solid transparent
+          transition inherit
+        &:last-child
+          border-radius 0px 0px 2px 2px
+        &:hover, &:focus
+          color $green-6
+          background-color #f9f9f9
+          &:before
+            border-right-color $green-1
+
+    &__icon
+      width auto
+
+      &_lvl_1
+        margin-right 10px
+
+      &_lvl_2
+        margin-left 10px
+
+    &__submenu
+      &_lvl_1
+        display block !important
+        font-size 14px
+        font-weight 400
+        line-height round(18/14, 2)em
+        text-transform none
+        border 1px solid #d4d4d4
+        border-top 0
+        border-radius 0px 0px 2px 2px

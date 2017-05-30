@@ -18,18 +18,43 @@
   /* speak: none; only necessary if not using the private unicode range (firstGlyph option) */
   text-decoration: none;
   text-transform: none;
+  display: inline-block;
   vertical-align: top;
 }
 
 
-.gly-cart:before {
+.gly-1ul-marker:before {
   content: "\E001";
 }
 
-.gly-graph:before {
+.gly-advantage-1:before {
   content: "\E002";
 }
 
-.gly-search:before {
+.gly-advantage-2:before {
   content: "\E003";
+}
+
+.gly-advantage-3:before {
+  content: "\E004";
+}
+
+.gly-advantage-4:before {
+  content: "\E005";
+}
+
+.gly-cart:before {
+  content: "\E006";
+}
+
+.gly-graph:before {
+  content: "\E007";
+}
+
+.gly-search:before {
+  content: "\E008";
+}
+
+.gly-wallet:before {
+  content: "\E009";
 }

@@ -3,32 +3,75 @@ include ../components/header/header
 include ../components/content/content
 include ../components/footer/footer
 include ../components/products-list/products-list
+include ../components/news/news
 include ../components/vk-widget/vk-widget
+include ../components/slider-main/slider-main
 
 +doctype(pages.index.title)._main
   .-wrapper
     +header(false, [pages.index.url])
     +content
-      .container-fluid.-grid._1
+      .container-fluid.-grid._1.affix-col-container
         .row
-          aside.-grid.__col._1.hidden-xs.hidden-sm
-            nav.-menu-catalogue
+          .-grid.__col._1.affix-col-position
+            .-affix-col
+              .-info-order.hidden-xs.hidden-sm
+                .__icon.gly.gly-wallet
+                .__text Минимальная сумма заказа 500 #[span.rouble a]
 
-            +vk-widget()
+              //- .-filters
+
           .-grid.__col._2
+            +slider-main()(data-slick='{"autoplaySpeed": 7000}')
+
+            .-advantages
+              .__item
+                .__icon
+
             section.-section._1
               header.__header
                 h2.__title: span.__title-inner Новинки
-              +products-list(products, 'new', true)._slick.slick-slider
+              +products-list(productsList, 'new', true)._slick.slick-slider
 
             section.-section._1
               header.__header
                 h2.__title: span.__title-inner Хиты продаж
-              +products-list(products, 'hit', true)._slick.slick-slider
+              +products-list(productsList, 'hit', true)._slick.slick-slider
 
             section.-section._1
               header.__header
                 h2.__title: span.__title-inner Распродажа
-              +products-list(products, 'sale', true)._slick.slick-slider
+              +products-list(productsList, 'sale', true)._slick.slick-slider
+
+      div &nbsp;
+      .container-fluid.-grid._3
+        .row
+          .-grid.__col._2
+            section.-section
+              h2.h1.margin-none-top Продажа товаров для творчества
+              p.
+                Этот текст не несет никакого смысла, текст ради текста, чтобы показать количество информации, которая нужна для этого блока. Потом здесь будет ваш текст (кстати, можете его уже готовить) или текст от нашего копирайтера, который потом нужно будет проверить на фактические ошибки, потому что копирайтер - человек творческий и может написать что-то не то. А еще он не обладает специальными знаниями по вашей теме и напишет то, что нашел в интернете. Этот текст не несет никакого смысла, текст ради текста, чтобы показать количество информации, которая нужна для этого блока.
+              p.
+                Этот текст не несет никакого смысла, текст ради текста, чтобы показать количество информации, которая нужна для этого блока. Потом здесь будет ваш текст (кстати, можете его уже готовить) или текст от нашего копирайтера, который потом нужно будет проверить на фактические ошибки, потому что копирайтер - человек творческий и может написать что-то не то. А еще он не обладает специальными знаниями по вашей теме и напишет то, что нашел в интернете. Этот текст не несет никакого смысла, текст ради текста, чтобы показать количество информации, которая нужна для этого блока.
+              ul
+                li.
+                  Этот текст не несет никакого смысла, текст ради текста
+                li.
+                  Этот текст не несет никакого смысла, текст ради текста, чтобы показать количество информации,
+                  которая нужна для этого блока. Потом здесь будет ваш текст (кстати, можете его уже готовить)
+                  или текст от нашего копирайтера, который потом нужно будет проверить на фактические ошибки,
+                  потому что копирайтер - человек творческий и может написать что-то не то.
+                  А еще он не обладает специальными знаниями по вашей теме и напишет то, что нашел в интернете.
+                  Этот текст не несет никакого смысла, текст ради текста, чтобы показать количество информации,
+                  которая нужна для этого блока.
+
+          .-grid.__col._1
+            .row
+              .col-xs-12.col-sm-6.col-md-12
+                +news()
+
+              .col-xs-12.col-sm-6.col-md-12
+                +vk-widget()
+
 
     +footer

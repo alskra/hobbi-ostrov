@@ -13,7 +13,8 @@
     "bower_components/jquery/dist/jquery.js",
     "bower_components/jquery-touch-events/src/jquery.mobile-events.js",
     "app_components/bootstrap/js/dropdown.js",
-    "bower_components/slick-carousel/slick/slick.js",
+    "app_components/bootstrap/js/affix.js",
+    "app_components/slick-carousel/add-on/slick.js",
     "bower_components/jquery-mask-plugin/dist/jquery.mask.js"
   ],
   "fonts_src": [

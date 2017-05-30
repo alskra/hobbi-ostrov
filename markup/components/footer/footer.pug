@@ -1,4 +1,6 @@
+include ../menu-foot/menu-foot
 include ../form-subscribe/form-subscribe
+include ../pay-systems/pay-systems
 
 mixin footer()
   // Footer
@@ -9,6 +11,25 @@ mixin footer()
           .-grid.__col._1
             +form-subscribe()
           .-grid.__col._2
+            .-footer.__title Важная информация
+            +menu-foot(menuFootList)
           .-grid.__col._3
+            .-footer.__title Контактные данные
+            p
+              strong: a.-footer.__tel(href='tel:+79999999999') +7 (999) 999 99 99
+            .-footer.__pay
+              p Принимаем к оплате
+              +pay-systems()
     .__bottom
+      .container-fluid.-grid._2
+        .row
+          .-grid.__col._1
+            .-footer.__copyright
+              p.
+                Copyright &copy;&nbsp;Хоббитаемый остров, 2017. Все права защищены
+          .-grid.__col._2
+            +social-networks()
+          .-grid.__col._3
+            +a('//art6.ru').-footer.__developer(target='_blank' title='Интернет-агентство «ART6»')
+              svg.__developer-logo: use(href='#art6')
   // /Footer

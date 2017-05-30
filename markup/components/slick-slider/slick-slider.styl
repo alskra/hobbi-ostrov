@@ -24,6 +24,8 @@
   text-align center
   li
     margin 0 5px 10px
+    &:before
+      content normal
     button
       square 10px
       border-radius 50%
@@ -32,3 +34,6 @@
     &.slick-active
       button
         background-color #bbb
+
+.slick-loading
+  visibility hidden

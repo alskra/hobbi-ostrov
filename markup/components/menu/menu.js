@@ -1,12 +1,9 @@
 $(function () {
-    var duration = Modernizr.mq('(min-width: ' + $screenMd + 'px)') ? 0 : 200;
-    $('body').on('click', '.menu__item_submenu>.menu__btn', function (e) {
+    $('body').on('click', '.menu__item_submenu>.menu__btn, .menu-catalogue__item_submenu>.menu-catalogue__btn', function (e) {
         e.preventDefault();
-        $('.menu__item_submenu').not(
-            $(this).closest('.menu__item_submenu').toggleClass('menu__item_opened').children('.menu__submenu').slideToggle(duration).end()
-        ).removeClass('menu__item_opened').children('.menu__submenu').slideUp(duration);
-    }).on('click', function (e) {
-        if ($(e.target).closest('.menu__btn').length || $(e.target).closest('.menu__submenu').length) return;
-        $('.menu__item_submenu').removeClass('menu__item_opened').children('.menu__submenu').slideUp(duration);
+        $('.menu__submenu, .menu-catalogue__submenu')
+            .not($(this).next('.menu__submenu, .menu-catalogue__submenu').toggleClass('opened').toggle().parent().toggleClass('opened').end())
+            .not($(this).parents('.menu__submenu, .menu-catalogue__submenu'))
+            .removeClass('opened').hide().parent().removeClass('opened');
     });
 });

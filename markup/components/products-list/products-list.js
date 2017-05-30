@@ -20,19 +20,22 @@ $(function () {
             {
                 breakpoint: 479,
                 settings: {
-                    slidesToShow: 2
+                    slidesToShow: 2,
+                    slidesToScroll: 2
                 }
             },
             {
                 breakpoint: $screenSm - 1,
                 settings: {
-                    slidesToShow: 3
+                    slidesToShow: 3,
+                    slidesToScroll: 3
                 }
             },
             {
                 breakpoint: $screenLg - 1,
                 settings: {
-                    slidesToShow: 4
+                    slidesToShow: 4,
+                    slidesToScroll: 4
                 }
             }
         ]

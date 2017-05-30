@@ -31,8 +31,11 @@ body
   word-wrap break-word
 
 ::selection
-  background $red-1
+  background $green-1
   color white
+
+:focus
+  outline 0
 
 // Reset fonts for relevant elements
 input,
@@ -49,7 +52,7 @@ textarea
 a
   color $link-color
   text-decoration none
-  transition $transition-duration-base
+  transition $transition-base
 
   &:hover,
   &:focus

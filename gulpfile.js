@@ -226,6 +226,7 @@ gulp.task('css:blocks', function () {
         concat({path: 'blocks.styl'}),
         stylus({
             'include css': true,
+            'disable cache': true,
             use: [autoprefixer({
                 browsers: browsers,
                 cascade: false
@@ -440,7 +441,7 @@ gulp.task('watch', function() {
     gulp.watch(['app_components/**/*.{css,styl}', 'markup/static/**/*.{css,styl}'], gulp.series('css:components', function reloadCSS_components(done) {
         reload('build/static/css/components.css'); done();
     }));
-    gulp.watch(['markup/components/**/*.styl'], gulp.series('css:blocks', function reloadCSS_blocks(done) {
+    gulp.watch(['app_components/bootstrap/css/variables.styl', 'app_components/bootstrap/css/mixins.styl', 'markup/components/**/*.styl'], gulp.series('css:blocks', function reloadCSS_blocks(done) {
         reload('build/static/css/blocks.css'); done();
     }));
 
@@ -453,7 +454,7 @@ gulp.task('watch', function() {
     }));
 
     //IMG
-    gulp.watch(['markup/**/*.{png,jp*g,gif,svg}'], gulp.series('img', function reloadIMG(done) {
+    gulp.watch(['markup/components/**/*.{png,jp*g,gif,svg}'], gulp.series('img', function reloadIMG(done) {
         reload('build/static/img/**/*.{png,jp*g,gif,svg}'); done();
     }));
 
