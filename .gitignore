@@ -2,12 +2,9 @@
 *~
 *.iws
 *.log
-*.zip
 .project
 .DS_Store
 .sass-cache
 .idea
 node_modules/
 bower_components/
-public/
-dist/

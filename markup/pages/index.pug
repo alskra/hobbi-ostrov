@@ -6,6 +6,7 @@ include ../components/products-list/products-list
 include ../components/news/news
 include ../components/vk-widget/vk-widget
 include ../components/slider-main/slider-main
+include ../components/section-instagram/section-instagram
 
 +doctype(pages.index.title)._main
   .-wrapper
@@ -26,7 +27,17 @@ include ../components/slider-main/slider-main
 
             .-advantages
               .__item
-                .__icon
+                .__icon.gly.gly-advantage-1
+                p.__text Отправка по России#[br.visible-lg-inline] от 150&nbsp;#[span.rouble a]
+              .__item
+                .__icon.gly.gly-advantage-2
+                p.__text Бесплатная доставка по России от 3500&nbsp;#[span.rouble a]
+              .__item
+                .__icon.gly.gly-advantage-3
+                p.__text Накопительная скидка
+              .__item
+                .__icon.gly.gly-advantage-4
+                p.__text Более 1000 товаров для рукоделия
 
             section.-section._1
               header.__header
@@ -42,6 +53,8 @@ include ../components/slider-main/slider-main
               header.__header
                 h2.__title: span.__title-inner Распродажа
               +products-list(productsList, 'sale', true)._slick.slick-slider
+
+            +section-instagram()
 
       div &nbsp;
       .container-fluid.-grid._3
