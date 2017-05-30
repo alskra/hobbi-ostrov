@@ -1,7 +1,7 @@
 -
   var menuCatalogueList = [
-    {title: 'Каталог', url: voidHref, submenu: [
-        {title: 'Вышивание', url: voidHref},
+    {title: 'Каталог', url: pages.catalogue.url, submenu: [
+        {title: 'Вышивание', url: pages.catalogue.url},
         {title: 'Вязание', url: voidHref},
         {title: 'Декупаж', url: voidHref},
         {title: 'Скрапбукинг', url: voidHref},
@@ -13,11 +13,11 @@
     }
   ];
 
-mixin menu-catalogue(menuCatalogueList)
+mixin menu-catalogue(menuCatalogueList, urls)
   // Menu-catalogue
   .-menu-catalogue&attributes(attributes)
     each item in menuCatalogueList
-      .__item._lvl_1(class={_submenu: item.submenu})
+      .__item._lvl_1(class={_submenu: item.submenu, _current: item.url === urls[0]})
         a.__btn._lvl_1(href= item.url)
           if item.submenu
             span.__icon._lvl_1(class='icon-menu-3 hidden-xs hidden-sm')
@@ -28,7 +28,7 @@ mixin menu-catalogue(menuCatalogueList)
         if item.submenu
           .__submenu._lvl_1(style={display: 'none'})
             each itemInner in item.submenu
-              .__item._lvl_2(class={_submenu: itemInner.submenu})
+              .__item._lvl_2(class={_submenu: itemInner.submenu, _current: itemInner.url === urls[1]})
                 a.__btn._lvl_2(href= itemInner.url)
                   span.__label._lvl_2= itemInner.title
                   span.__icon._lvl_2(class={'icon-right-open-mini': !itemInner.submenu})

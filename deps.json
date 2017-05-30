@@ -6,7 +6,8 @@
     "markup/static/fonts/fontello/fontello.css",
     "markup/static/fonts/glyphicons/glyphicons.css",
     "app_components/img-object-fit/img-object-fit.css",
-    "bower_components/slick-carousel/slick/slick.css"
+    "bower_components/slick-carousel/slick/slick.css",
+    "app_components/ion.rangeSlider-2.1.7/css/ion.rangeSlider.css"
   ],
   "js_src": [
     "app_components/modernizr/modernizr-custom.js",
@@ -15,7 +16,8 @@
     "app_components/bootstrap/js/dropdown.js",
     "app_components/bootstrap/js/affix.js",
     "app_components/slick-carousel/add-on/slick.js",
-    "bower_components/jquery-mask-plugin/dist/jquery.mask.js"
+    "app_components/ion.rangeSlider-2.1.7/js/ion-rangeSlider/ion.rangeSlider.js",
+    "app_components/Igor10k-ikSelect-d5a1480/src/jquery.ikSelect.js"
   ],
   "fonts_src": [
     "markup/static/fonts/rouble",

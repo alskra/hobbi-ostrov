@@ -1,12 +1,52 @@
--
-  var filters = ['Все', 'Интернет-магазин', 'Landing Page', 'Сайт-визитка', 'Промо', 'Айдентика'];
+include ../checkbox/checkbox
+include ../range-slider/range-slider
 
-mixin filters(data, selectActive)
-  nav.-filters&attributes(attributes)
-    .__inner
-      .container-fluid
-        .-filters.__inner-2
-          .__scroll.ps-scroll(data-ps-scroll={"useBothWheelAxes": true})
-            each item, index in data
-              .__item
-                +a.__link(class={_current: index == 0 && selectActive})= item
+mixin filters()
+  // Filters
+  aside.-filters.aside&attributes(attributes)
+    header.aside__header
+      h3.aside__title Подобрать товар
+    form.__form(action='')
+      .__section
+        .form-row.form-row__checkbox
+          +checkbox('new') Новинки
+        .form-row.form-row__checkbox
+          +checkbox('hit', true) Хит продаж
+        .form-row.form-row__checkbox
+          +checkbox('sale') Распродажа
+
+      .__section
+        .__section-title Цена
+        +range-slider('price')(data-rs-min='100' data-rs-max='10000' data-rs-from='100' data-rs-to='10000')
+
+      .__section
+        .__section-title По сюжету
+        label.-form-label
+          span.__text Выберите нужное
+          select.-select._width_100(data-linkcustomclass='text-field' data-ddcustomclass='select__dd')
+            option Весеннее настроение
+            option Сюжет 2
+            option Сюжет 3
+            option Сюжет 4
+            option Сюжет 5
+
+      .__section
+        .__section-title Тип канвы
+        .form-row.form-row__checkbox
+          +checkbox('type-kanva') 10
+        .form-row.form-row__checkbox
+          +checkbox('type-kanva') 11
+        .form-row.form-row__checkbox
+          +checkbox('type-kanva') 14
+        .form-row.form-row__checkbox
+          +checkbox('type-kanva') 16
+        .form-row.form-row__checkbox
+          +checkbox('type-kanva') 18
+        .form-row.form-row__checkbox
+          +checkbox('type-kanva') 22
+        .form-row.form-row__checkbox
+          +checkbox('type-kanva') 28
+        .form-row.form-row__checkbox
+          +checkbox('type-kanva') 32
+
+  // /Filters

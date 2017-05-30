@@ -1,4 +1,4 @@
-.slick-slide, .slick-arrow, .slick-dots button, a
+.slick-slide, .slick-arrow, .slick-dots button, .slick-slider a
   &:focus
     outline 0
 .slick-arrow, .slick-dots button
@@ -7,10 +7,7 @@
   margin 0
   padding 0
 .slick-disabled
-  cursor $cursor-disabled
-  opacity 0.65
-  box-shadow none
-  pointer-events none
+  disabled()
 .slick-dots
   list-style none
   margin 0 0 -10px

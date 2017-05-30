@@ -31,10 +31,7 @@
   &.disabled,
   &[disabled],
   fieldset[disabled] &
-    cursor $cursor-disabled
-    opacity 0.5
-    box-shadow none
-    pointer-events none
+    disabled()
 
   &.error
     border-color red !important
