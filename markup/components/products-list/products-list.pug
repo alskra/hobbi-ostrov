@@ -15,6 +15,7 @@ include ../product-item/product-item
 mixin products-list(data, category, slick)
   // Products-list
   .-products-list&attributes(attributes)
-    each item, index in data
-      +product-item(item, category, slick)
+    .__inner(class={'slick-slider': slick})
+      each item, index in data
+        +product-item(item, category, slick)
   // /Products-list

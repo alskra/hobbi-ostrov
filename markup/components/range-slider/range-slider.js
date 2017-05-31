@@ -3,11 +3,11 @@ $(function () {
         var $this = $(this);
         $this.find('.range-slider__input').ionRangeSlider({
             type: "double",
-            min: $(this).data('rs-min'),
-            max: $(this).data('rs-max'),
-            from: $(this).data('rs-from'),
-            to: $(this).data('rs-to'),
-            step: 100,
+            min: $this.data('rs-min'),
+            max: $this.data('rs-max'),
+            from: $this.data('rs-from'),
+            to: $this.data('rs-to'),
+            step: $this.data('rs-step'),
             onStart: function (data) {
                 $this.find('.range-slider__from').val(data.from);
                 $this.find('.range-slider__to').val(data.to);

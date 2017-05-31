@@ -6,6 +6,9 @@ include ../components/products-list/products-list
 include ../components/news/news
 include ../components/vk-widget/vk-widget
 include ../components/filters/filters
+include ../components/breadcrumbs/breadcrumbs
+include ../components/set-display/set-display
+include ../components/pagination/pagination
 
 +doctype(pages.catalogue.title)
   .-wrapper
@@ -22,7 +25,62 @@ include ../components/filters/filters
               +filters()
 
           .-grid.__col._2
-            | Content
+            +breadcrumbs([{title: 'Каталог', url: pages.catalogue.url},
+                {title: 'Вышивание', url: pages.catalogue.url}, {title: 'Наборы для вышивания крестом', url: pages.catalogue.url}])
+
+            h1.h2 Наборы для вышивания крестом
+
+            .-categories-list
+              .__inner
+                figure.__item
+                  +a().__item-inner
+                    .__item-img-wrap
+                      img.__item-img(
+                      src='static/img/content/categories-list/200x200/21701-200x200.jpg'
+                      srcset='static/img/content/categories-list/200x200/21701-200x200.jpg 1x, static/img/content/categories-list/400x400/21701-400x400.jpg 1.25x'
+                      alt='' title='' data-object-fit='contain' onload='objectFit(this)')
+                    figcaption.__caption
+                figure.__item
+                  +a().__item-inner
+                    .__item-img-wrap
+                      img.__item-img(
+                      src='static/img/content/categories-list/200x200/Алиса-главная-1-200x200.jpg'
+                      srcset='static/img/content/categories-list/200x200/Алиса-главная-1-200x200.jpg 1x, static/img/content/categories-list/400x400/Алиса-главная-1-400x400.jpg 1.25x'
+                      alt='' title='' data-object-fit='contain' onload='objectFit(this)')
+                    figcaption.__caption
+                figure.__item
+                  +a().__item-inner
+                    .__item-img-wrap
+                      img.__item-img(
+                      src='static/img/content/categories-list/200x200/runo-200x200.jpg'
+                      srcset='static/img/content/categories-list/200x200/runo-200x200.jpg 1x, static/img/content/categories-list/400x400/runo-400x400.jpg 1.25x'
+                      alt='' title='' data-object-fit='contain' onload='objectFit(this)')
+                    figcaption.__caption
+                figure.__item
+                  +a().__item-inner
+                    .__item-img-wrap
+                      img.__item-img(
+                      src='static/img/content/categories-list/200x200/logo-rto-1-200x200.jpg'
+                      srcset='static/img/content/categories-list/200x200/logo-rto-1-200x200.jpg 1x, static/img/content/categories-list/400x400/logo-rto-1-400x400.jpg 1.25x'
+                      alt='' title='' data-object-fit='contain' onload='objectFit(this)')
+                    figcaption.__caption
+                figure.__item
+                  +a().__item-inner
+                    .__item-img-wrap
+                      img.__item-img(
+                      src='static/img/content/categories-list/200x200/pretenziya-200x200.jpg'
+                      srcset='static/img/content/categories-list/200x200/pretenziya-200x200.jpg 1x, static/img/content/categories-list/400x400/pretenziya-400x400.jpg 1.25x'
+                      alt='' title='' data-object-fit='contain' onload='objectFit(this)')
+                    figcaption.__caption Другие
+
+
+
+            +set-display()(data-for-list='pl-1')
+
+            +products-list(productsList, null, false)._view_list(id='pl-1')
+            //- +products-list(productsList, null, false)
+
+            +pagination()
 
       div &nbsp;
       .container-fluid.-grid._3

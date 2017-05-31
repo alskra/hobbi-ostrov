@@ -1,13 +1,82 @@
 .filters
   color #747474
-
   .aside__header
-    margin-bottom 0
+    margin -1px -1px 0
+
+  &.aside
+    padding 0
 
   &__section
-    margin 0 -15px
     padding 12px 15px 20px
-    border-bottom 1px solid #e5e5e5
+    &+&
+      border-top 1px solid #e5e5e5
+    &+&_btns
+      border-top 0
+
+    &_btns
+      display flex
+      justify-content space-between
+      align-items flex-start
+      padding-top 20px
 
   &__section-title
     margin 0 0 8px
+
+  &__results-lbl
+    color white
+    font-size 11px
+    font-weight 400
+    line-height (18/13)em
+    white-space nowrap
+    margin-top 5px
+    z-index $zindex-dropdown
+    cursor default
+    a
+      color inherit
+      text-decoration underline
+      &:hover, &:focus
+        color inherit
+        text-decoration none
+
+  &__results-lbl-i
+    padding 3px 10px
+    background-color $green-1
+    border-radius 2px
+
+
+  @media (min-width $screen-sm-min)
+    &__form
+      display flex
+      flex-flow row wrap
+
+    &__section
+      flex none
+      width 50%
+      &+&_btns
+        border-top 1px solid #e5e5e5
+
+      &_btns
+        align-items flex-end
+
+  @media (min-width $screen-md-min)
+    &__form
+      display block
+
+    &__section
+      width auto
+      &+&_btns
+        border-top 0
+
+    &__results-lbl
+      font-size 13px
+      height 0
+      position absolute
+      top 50%
+      left 100%
+      margin -15px 15px
+
+    &__results-lbl-i
+      padding 6px 10px
+      position relative
+      left -50%
+      box-shadow 0 1px 10px rgba(80, 80, 80, 0.31)

@@ -22,4 +22,8 @@ function reInitSelect() {
 
 $(function () {
     reInitSelect();
+
+    $(window).on('resize.select', function () {
+        $('select.select.select_has').ikSelect('redraw');
+    });
 });

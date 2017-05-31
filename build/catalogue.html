@@ -123,17 +123,17 @@
                   </header>
                   <form action="" class="filters__form">
                     <div class="filters__section">
-                      <div class="form-row form-row__checkbox">
+                      <div class="form-row form-row_checkbox">
                         <label class="checkbox">
                           <input type="checkbox" name="new" class="checkbox__input"><span class="checkbox__icon icon-check-1"></span><span class="checkbox__label">Новинки</span>
                         </label>
                       </div>
-                      <div class="form-row form-row__checkbox">
+                      <div class="form-row form-row_checkbox">
                         <label class="checkbox">
                           <input type="checkbox" name="hit" checked="" class="checkbox__input"><span class="checkbox__icon icon-check-1"></span><span class="checkbox__label">Хит продаж</span>
                         </label>
                       </div>
-                      <div class="form-row form-row__checkbox">
+                      <div class="form-row form-row_checkbox">
                         <label class="checkbox">
                           <input type="checkbox" name="sale" class="checkbox__input"><span class="checkbox__icon icon-check-1"></span><span class="checkbox__label">Распродажа</span>
                         </label>
@@ -141,77 +141,381 @@
                     </div>
                     <div class="filters__section">
                       <div class="filters__section-title">Цена</div>
-                      <div data-rs-min="100" data-rs-max="10000" data-rs-from="100" data-rs-to="10000" class="range-slider">
-                        <div class="range-slider__set">
-                          <div class="range-slider__set-lbl">от</div>
-                          <input class="range-slider__from text-field" type="text">
-                          <div class="range-slider__set-lbl range-slider__set-lbl_to">до</div>
-                          <input class="range-slider__to text-field" type="text">
+                      <div class="form-row">
+                        <div data-rs-min="100" data-rs-max="10000" data-rs-from="100" data-rs-to="10000" data-rs-step="100" class="range-slider">
+                          <div class="range-slider__set">
+                            <div class="range-slider__set-lbl">от</div>
+                            <input class="range-slider__from text-field" type="text">
+                            <div class="range-slider__set-lbl range-slider__set-lbl_to">до</div>
+                            <input class="range-slider__to text-field" type="text">
+                          </div>
+                          <input type="text" name="price" class="range-slider__input">
                         </div>
-                        <input type="text" name="price" class="range-slider__input">
                       </div>
                     </div>
                     <div class="filters__section">
                       <div class="filters__section-title">По сюжету</div>
-                      <label class="form-label"><span class="form-label__text">Выберите нужное</span>
-                        <select data-linkcustomclass="text-field" data-ddcustomclass="select__dd" class="select select_width_100">
-                          <option>Весеннее настроение</option>
-                          <option>Сюжет 2</option>
-                          <option>Сюжет 3</option>
-                          <option>Сюжет 4</option>
-                          <option>Сюжет 5</option>
-                        </select>
-                      </label>
+                      <div class="form-row">
+                        <label class="form-label"><span class="form-label__text">Выберите нужное</span>
+                          <select data-linkcustomclass="text-field" data-ddcustomclass="select__dd" class="select select_width_100">
+                            <option>Весеннее настроение</option>
+                            <option>Сюжет 2</option>
+                            <option>Сюжет 3</option>
+                            <option>Сюжет 4</option>
+                            <option>Сюжет 5</option>
+                          </select>
+                        </label>
+                      </div>
                     </div>
                     <div class="filters__section">
                       <div class="filters__section-title">Тип канвы</div>
-                      <div class="form-row form-row__checkbox">
+                      <div class="row">
+                        <div class="col-xs-12 col-sm-6 col-md-12">
+                          <div class="form-row form-row_checkbox">
+                            <label class="checkbox">
+                              <input type="checkbox" name="type-kanva" class="checkbox__input"><span class="checkbox__icon icon-check-1"></span><span class="checkbox__label">10</span>
+                            </label>
+                          </div>
+                          <div class="form-row form-row_checkbox">
+                            <label class="checkbox">
+                              <input type="checkbox" name="type-kanva" class="checkbox__input"><span class="checkbox__icon icon-check-1"></span><span class="checkbox__label">11</span>
+                            </label>
+                          </div>
+                          <div class="form-row form-row_checkbox">
+                            <label class="checkbox">
+                              <input type="checkbox" name="type-kanva" class="checkbox__input"><span class="checkbox__icon icon-check-1"></span><span class="checkbox__label">14</span>
+                            </label>
+                          </div>
+                          <div class="form-row form-row_checkbox">
+                            <label class="checkbox">
+                              <input type="checkbox" name="type-kanva" class="checkbox__input"><span class="checkbox__icon icon-check-1"></span><span class="checkbox__label">16</span>
+                            </label>
+                          </div>
+                          <div class="form-row hidden-sm"></div>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-12">
+                          <div class="form-row form-row_checkbox">
+                            <label class="checkbox">
+                              <input type="checkbox" name="type-kanva" class="checkbox__input"><span class="checkbox__icon icon-check-1"></span><span class="checkbox__label">18</span>
+                            </label>
+                          </div>
+                          <div class="form-row form-row_checkbox">
+                            <label class="checkbox">
+                              <input type="checkbox" name="type-kanva" class="checkbox__input"><span class="checkbox__icon icon-check-1"></span><span class="checkbox__label">22</span>
+                            </label>
+                          </div>
+                          <div class="form-row form-row_checkbox">
+                            <label class="checkbox">
+                              <input type="checkbox" name="type-kanva" class="checkbox__input"><span class="checkbox__icon icon-check-1"></span><span class="checkbox__label">28</span>
+                            </label>
+                          </div>
+                          <div class="form-row form-row_checkbox">
+                            <label class="checkbox">
+                              <input type="checkbox" name="type-kanva" class="checkbox__input"><span class="checkbox__icon icon-check-1"></span><span class="checkbox__label">32</span>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="filters__section">
+                      <div class="filters__section-title">Состав ниток</div>
+                      <div class="form-row form-row_checkbox">
                         <label class="checkbox">
-                          <input type="checkbox" name="type-kanva" class="checkbox__input"><span class="checkbox__icon icon-check-1"></span><span class="checkbox__label">10</span>
+                          <input type="checkbox" name="" class="checkbox__input"><span class="checkbox__icon icon-check-1"></span><span class="checkbox__label">Акрил</span>
                         </label>
                       </div>
-                      <div class="form-row form-row__checkbox">
+                      <div class="form-row form-row_checkbox">
                         <label class="checkbox">
-                          <input type="checkbox" name="type-kanva" class="checkbox__input"><span class="checkbox__icon icon-check-1"></span><span class="checkbox__label">11</span>
+                          <input type="checkbox" name="type-kanva" class="checkbox__input"><span class="checkbox__icon icon-check-1"></span><span class="checkbox__label">Хлопок</span>
+                        </label>
+                        <div class="filters__results-lbl">
+                          <div class="filters__results-lbl-i">Найдено <a href="javascript:;">2 товара</a>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-row form-row_checkbox">
+                        <label class="checkbox">
+                          <input type="checkbox" name="type-kanva" class="checkbox__input"><span class="checkbox__icon icon-check-1"></span><span class="checkbox__label">Шерсть</span>
                         </label>
                       </div>
-                      <div class="form-row form-row__checkbox">
-                        <label class="checkbox">
-                          <input type="checkbox" name="type-kanva" class="checkbox__input"><span class="checkbox__icon icon-check-1"></span><span class="checkbox__label">14</span>
+                    </div>
+                    <div class="filters__section">
+                      <div class="filters__section-title">Производитель</div>
+                      <div class="form-row">
+                        <label class="form-label"><span class="form-label__text">Выберите нужное</span>
+                          <select data-linkcustomclass="text-field" data-ddcustomclass="select__dd" class="select select_width_100">
+                            <option>Gazzal</option>
+                            <option>Производитель 2</option>
+                            <option>Производитель 3</option>
+                            <option>Производитель 4</option>
+                            <option>Производитель 5</option>
+                          </select>
                         </label>
                       </div>
-                      <div class="form-row form-row__checkbox">
-                        <label class="checkbox">
-                          <input type="checkbox" name="type-kanva" class="checkbox__input"><span class="checkbox__icon icon-check-1"></span><span class="checkbox__label">16</span>
-                        </label>
+                    </div>
+                    <div class="filters__section">
+                      <div class="filters__section-title">Высота, см</div>
+                      <div class="form-row">
+                        <div data-rs-min="0" data-rs-max="200" data-rs-from="0" data-rs-to="200" data-rs-step="1" class="range-slider">
+                          <div class="range-slider__set">
+                            <div class="range-slider__set-lbl">от</div>
+                            <input class="range-slider__from text-field" type="text">
+                            <div class="range-slider__set-lbl range-slider__set-lbl_to">до</div>
+                            <input class="range-slider__to text-field" type="text">
+                          </div>
+                          <input type="text" name="price" class="range-slider__input">
+                        </div>
                       </div>
-                      <div class="form-row form-row__checkbox">
-                        <label class="checkbox">
-                          <input type="checkbox" name="type-kanva" class="checkbox__input"><span class="checkbox__icon icon-check-1"></span><span class="checkbox__label">18</span>
-                        </label>
-                      </div>
-                      <div class="form-row form-row__checkbox">
-                        <label class="checkbox">
-                          <input type="checkbox" name="type-kanva" class="checkbox__input"><span class="checkbox__icon icon-check-1"></span><span class="checkbox__label">22</span>
-                        </label>
-                      </div>
-                      <div class="form-row form-row__checkbox">
-                        <label class="checkbox">
-                          <input type="checkbox" name="type-kanva" class="checkbox__input"><span class="checkbox__icon icon-check-1"></span><span class="checkbox__label">28</span>
-                        </label>
-                      </div>
-                      <div class="form-row form-row__checkbox">
-                        <label class="checkbox">
-                          <input type="checkbox" name="type-kanva" class="checkbox__input"><span class="checkbox__icon icon-check-1"></span><span class="checkbox__label">32</span>
-                        </label>
-                      </div>
+                    </div>
+                    <div class="filters__section filters__section_btns">
+                      <button type="reset" class="btn btn_5"><span class="btn__label">Сбросить</span></button>
+                      <button type="submit" class="btn btn_6"><span class="btn__label">Показать</span></button>
                     </div>
                   </form>
                 </aside>
                 <!-- /Filters-->
               </div>
             </div>
-            <div class="grid__col grid__col_2">Content</div>
+            <div class="grid__col grid__col_2">
+              <!-- Breadcrumbs-->
+              <nav class="breadcrumbs"><span class="breadcrumbs__item"><a href="index.html" class="breadcrumbs__label">Главная</a><span class="breadcrumbs__icon icon-right-open-mini"></span></span><span class="breadcrumbs__item"><a href="catalogue.html" class="breadcrumbs__label">Каталог</a><span class="breadcrumbs__icon icon-right-open-mini"></span></span><span class="breadcrumbs__item"><a href="catalogue.html" class="breadcrumbs__label">Вышивание</a><span class="breadcrumbs__icon icon-right-open-mini"></span></span><span class="breadcrumbs__item"><a href="catalogue.html" class="breadcrumbs__label">Наборы для вышивания крестом</a></span>
+              </nav>
+              <!-- /Breadcrumbs-->
+              <h1 class="h2">Наборы для вышивания крестом</h1>
+              <div class="categories-list">
+                <div class="categories-list__inner">
+                  <figure class="categories-list__item"><a href="javascript:;" class="categories-list__item-inner">
+                      <div class="categories-list__item-img-wrap"><img src="static/img/content/categories-list/200x200/21701-200x200.jpg" srcset="static/img/content/categories-list/200x200/21701-200x200.jpg 1x, static/img/content/categories-list/400x400/21701-400x400.jpg 1.25x" alt="" title="" data-object-fit="contain" onload="objectFit(this)" class="categories-list__item-img"></div>
+                      <figcaption class="categories-list__caption"></figcaption></a>
+                  </figure>
+                  <figure class="categories-list__item"><a href="javascript:;" class="categories-list__item-inner">
+                      <div class="categories-list__item-img-wrap"><img src="static/img/content/categories-list/200x200/Алиса-главная-1-200x200.jpg" srcset="static/img/content/categories-list/200x200/Алиса-главная-1-200x200.jpg 1x, static/img/content/categories-list/400x400/Алиса-главная-1-400x400.jpg 1.25x" alt="" title="" data-object-fit="contain" onload="objectFit(this)" class="categories-list__item-img"></div>
+                      <figcaption class="categories-list__caption"></figcaption></a>
+                  </figure>
+                  <figure class="categories-list__item"><a href="javascript:;" class="categories-list__item-inner">
+                      <div class="categories-list__item-img-wrap"><img src="static/img/content/categories-list/200x200/runo-200x200.jpg" srcset="static/img/content/categories-list/200x200/runo-200x200.jpg 1x, static/img/content/categories-list/400x400/runo-400x400.jpg 1.25x" alt="" title="" data-object-fit="contain" onload="objectFit(this)" class="categories-list__item-img"></div>
+                      <figcaption class="categories-list__caption"></figcaption></a>
+                  </figure>
+                  <figure class="categories-list__item"><a href="javascript:;" class="categories-list__item-inner">
+                      <div class="categories-list__item-img-wrap"><img src="static/img/content/categories-list/200x200/logo-rto-1-200x200.jpg" srcset="static/img/content/categories-list/200x200/logo-rto-1-200x200.jpg 1x, static/img/content/categories-list/400x400/logo-rto-1-400x400.jpg 1.25x" alt="" title="" data-object-fit="contain" onload="objectFit(this)" class="categories-list__item-img"></div>
+                      <figcaption class="categories-list__caption"></figcaption></a>
+                  </figure>
+                  <figure class="categories-list__item"><a href="javascript:;" class="categories-list__item-inner">
+                      <div class="categories-list__item-img-wrap"><img src="static/img/content/categories-list/200x200/pretenziya-200x200.jpg" srcset="static/img/content/categories-list/200x200/pretenziya-200x200.jpg 1x, static/img/content/categories-list/400x400/pretenziya-400x400.jpg 1.25x" alt="" title="" data-object-fit="contain" onload="objectFit(this)" class="categories-list__item-img"></div>
+                      <figcaption class="categories-list__caption">Другие</figcaption></a>
+                  </figure>
+                </div>
+              </div>
+              <!-- Set-display-->
+              <div data-for-list="pl-1" class="set-display">
+                <div class="set-display__col set-display__col_1">
+                  <label class="form-label"><span class="form-label__text">Сортировать</span>
+                    <select data-linkcustomclass="text-field" data-ddcustomclass="select__dd" class="select">
+                      <option selected="">По умолчанию</option>
+                      <option>По алфавиту</option>
+                      <option>По цене</option>
+                    </select>
+                  </label>
+                </div>
+                <div class="set-display__col set-display__col_2">
+                  <label class="form-label"><span class="form-label__text">Показывать</span>
+                    <select data-linkcustomclass="text-field" data-ddcustomclass="select__dd" class="select">
+                      <option selected="">12</option>
+                      <option selected="">24</option>
+                      <option selected="">36</option>
+                    </select>
+                  </label>
+                </div>
+                <div class="set-display__col set-display__col_3 hidden-xs"><a class="set-display__view set-display__view_list set-display__view_active btn icon-th-list-4" href="javascript:;" data-view="list"></a><a class="set-display__view set-display__view_grid btn icon-th-3" href="javascript:;" data-view="grid"></a>
+                </div>
+              </div>
+              <!-- /Set-display-->
+              <!-- Products-list-->
+              <div id="pl-1" class="products-list products-list_view_list">
+                <div class="products-list__inner">
+                  <article class="product-item"><a href="javascript:;" class="product-item__inner">
+                      <div class="product-item__options">
+                        <button class="product-item__favorites product-item__favorites_active btn icon-heart-empty" type="button" title="В избранное"></button>
+                        <button class="product-item__graph btn gly gly-graph" type="button" title=""></button>
+                      </div>
+                      <div class="product-item__img-wrap">
+                        <div class="product-item__img-wrap-inner"><img src="static/img/content/products-list/130x130/ece3764b049fb4be6715cb8da0ead2e2-130x130.jpg" srcset="static/img/content/products-list/130x130/ece3764b049fb4be6715cb8da0ead2e2-130x130.jpg 1x, static/img/content/products-list/260x260/ece3764b049fb4be6715cb8da0ead2e2-260x260.jpg 1.25x" title="Пряжа BBB Zarra" alt="Пряжа BBB Zarra" data-object-fit="contain" onload="objectFit(this)" class="product-item__img">
+                        </div>
+                      </div>
+                      <div class="product-item__col product-item__col_center">
+                        <h3 class="product-item__title">Пряжа BBB Zarra</h3>
+                        <ul class="product-item__properties">
+                          <li>50 гр / 90 м</li>
+                          <li>49 % мериносовая шерсть</li>
+                          <li>51% акрил</li>
+                        </ul>
+                      </div>
+                      <footer class="product-item__footer">
+                        <div class="product-item__price-box">
+                          <div class="product-item__price product-item__price_old">300<span class="rouble">a</span></div><br>
+                          <div class="product-item__price">240<span class="rouble">a</span></div>
+                        </div>
+                        <button class="product-item__status btn btn_1" type="button"><span class="btn__label">В корзину</span></button>
+                      </footer></a>
+                  </article>
+                  <article class="product-item"><a href="javascript:;" class="product-item__inner">
+                      <div class="product-item__options">
+                        <button class="product-item__favorites btn icon-heart-empty" type="button" title="В избранное"></button>
+                        <button class="product-item__graph btn gly gly-graph" type="button" title=""></button>
+                      </div>
+                      <div class="product-item__img-wrap">
+                        <div class="product-item__img-wrap-inner"><img src="static/img/content/products-list/130x130/t_458915436-300x300-130x130.jpg" srcset="static/img/content/products-list/130x130/t_458915436-300x300-130x130.jpg 1x, static/img/content/products-list/260x260/t_458915436-300x300-260x260.jpg 1.25x" title="Очень качественная пряжа BBB Zarrina" alt="Очень качественная пряжа BBB Zarrina" data-object-fit="contain" onload="objectFit(this)" class="product-item__img">
+                        </div>
+                      </div>
+                      <div class="product-item__col product-item__col_center">
+                        <h3 class="product-item__title">Очень качественная пряжа BBB Zarrina</h3>
+                        <ul class="product-item__properties">
+                          <li>50 гр / 90 м</li>
+                          <li>49 % мериносовая шерсть</li>
+                          <li>51% акрил</li>
+                        </ul>
+                      </div>
+                      <footer class="product-item__footer">
+                        <div class="product-item__price-box">
+                          <div class="product-item__price product-item__price_old">1300<span class="rouble">a</span></div><br>
+                          <div class="product-item__price">1240<span class="rouble">a</span></div>
+                        </div>
+                        <button class="product-item__status btn btn_2" type="button"><span class="btn__label">В корзине</span></button>
+                      </footer></a>
+                  </article>
+                  <article class="product-item"><a href="javascript:;" class="product-item__inner">
+                      <div class="product-item__options">
+                        <button class="product-item__favorites btn icon-heart-empty" type="button" title="В избранное"></button>
+                        <button class="product-item__graph btn gly gly-graph" type="button" title=""></button>
+                      </div>
+                      <div class="product-item__img-wrap">
+                        <div class="product-item__img-wrap-inner"><img src="static/img/content/products-list/130x130/item_287-400x400-130x130.jpg" srcset="static/img/content/products-list/130x130/item_287-400x400-130x130.jpg 1x, static/img/content/products-list/260x260/item_287-400x400-260x260.jpg 1.25x" title="Пряжа BBB Zarra" alt="Пряжа BBB Zarra" data-object-fit="contain" onload="objectFit(this)" class="product-item__img">
+                        </div>
+                      </div>
+                      <div class="product-item__col product-item__col_center">
+                        <h3 class="product-item__title">Пряжа BBB Zarra</h3>
+                        <ul class="product-item__properties">
+                          <li>50 гр / 90 м</li>
+                          <li>49 % мериносовая шерсть</li>
+                          <li>51% акрил</li>
+                        </ul>
+                      </div>
+                      <footer class="product-item__footer">
+                        <div class="product-item__price-box">
+                          <div class="product-item__price product-item__price_old">300<span class="rouble">a</span></div><br>
+                          <div class="product-item__price">240<span class="rouble">a</span></div>
+                        </div>
+                        <button class="product-item__status btn btn_3" type="button"><span class="btn__label">Нет в наличии</span></button>
+                      </footer></a>
+                  </article>
+                  <article class="product-item"><a href="javascript:;" class="product-item__inner">
+                      <div class="product-item__options">
+                        <button class="product-item__favorites btn icon-heart-empty" type="button" title="В избранное"></button>
+                        <button class="product-item__graph btn gly gly-graph" type="button" title=""></button>
+                      </div>
+                      <div class="product-item__img-wrap">
+                        <div class="product-item__img-wrap-inner"><img src="static/img/content/products-list/130x130/t_458915436-230x218-130x130.jpg" srcset="static/img/content/products-list/130x130/t_458915436-230x218-130x130.jpg 1x, static/img/content/products-list/260x260/t_458915436-230x218-260x260.jpg 1.25x" title="Очень качественная пряжа BBB Zarrina" alt="Очень качественная пряжа BBB Zarrina" data-object-fit="contain" onload="objectFit(this)" class="product-item__img">
+                        </div>
+                      </div>
+                      <div class="product-item__col product-item__col_center">
+                        <h3 class="product-item__title">Очень качественная пряжа BBB Zarrina</h3>
+                        <ul class="product-item__properties">
+                          <li>50 гр / 90 м</li>
+                          <li>49 % мериносовая шерсть</li>
+                          <li>51% акрил</li>
+                        </ul>
+                      </div>
+                      <footer class="product-item__footer">
+                        <div class="product-item__price-box">
+                          <div class="product-item__price product-item__price_old">1300<span class="rouble">a</span></div><br>
+                          <div class="product-item__price">1240<span class="rouble">a</span></div>
+                        </div>
+                        <button class="product-item__status btn btn_1" type="button"><span class="btn__label">В корзину</span></button>
+                      </footer></a>
+                  </article>
+                  <article class="product-item"><a href="javascript:;" class="product-item__inner">
+                      <div class="product-item__options">
+                        <button class="product-item__favorites btn icon-heart-empty" type="button" title="В избранное"></button>
+                        <button class="product-item__graph btn gly gly-graph" type="button" title=""></button>
+                      </div>
+                      <div class="product-item__img-wrap">
+                        <div class="product-item__img-wrap-inner"><img src="static/img/content/products-list/130x130/ece3764b049fb4be6715cb8da0ead2e2-130x130.jpg" srcset="static/img/content/products-list/130x130/ece3764b049fb4be6715cb8da0ead2e2-130x130.jpg 1x, static/img/content/products-list/260x260/ece3764b049fb4be6715cb8da0ead2e2-260x260.jpg 1.25x" title="Пряжа BBB Zarra" alt="Пряжа BBB Zarra" data-object-fit="contain" onload="objectFit(this)" class="product-item__img">
+                        </div>
+                      </div>
+                      <div class="product-item__col product-item__col_center">
+                        <h3 class="product-item__title">Пряжа BBB Zarra</h3>
+                        <ul class="product-item__properties">
+                          <li>50 гр / 90 м</li>
+                          <li>49 % мериносовая шерсть</li>
+                          <li>51% акрил</li>
+                        </ul>
+                      </div>
+                      <footer class="product-item__footer">
+                        <div class="product-item__price-box">
+                          <div class="product-item__price product-item__price_old">300<span class="rouble">a</span></div><br>
+                          <div class="product-item__price">240<span class="rouble">a</span></div>
+                        </div>
+                        <button class="product-item__status btn btn_1" type="button"><span class="btn__label">В корзину</span></button>
+                      </footer></a>
+                  </article>
+                  <article class="product-item"><a href="javascript:;" class="product-item__inner">
+                      <div class="product-item__options">
+                        <button class="product-item__favorites btn icon-heart-empty" type="button" title="В избранное"></button>
+                        <button class="product-item__graph btn gly gly-graph" type="button" title=""></button>
+                      </div>
+                      <div class="product-item__img-wrap">
+                        <div class="product-item__img-wrap-inner"><img src="static/img/content/products-list/130x130/t_458915436-300x300-130x130.jpg" srcset="static/img/content/products-list/130x130/t_458915436-300x300-130x130.jpg 1x, static/img/content/products-list/260x260/t_458915436-300x300-260x260.jpg 1.25x" title="Очень качественная пряжа BBB Zarrina" alt="Очень качественная пряжа BBB Zarrina" data-object-fit="contain" onload="objectFit(this)" class="product-item__img">
+                        </div>
+                      </div>
+                      <div class="product-item__col product-item__col_center">
+                        <h3 class="product-item__title">Очень качественная пряжа BBB Zarrina</h3>
+                        <ul class="product-item__properties">
+                          <li>50 гр / 90 м</li>
+                          <li>49 % мериносовая шерсть</li>
+                          <li>51% акрил</li>
+                        </ul>
+                      </div>
+                      <footer class="product-item__footer">
+                        <div class="product-item__price-box">
+                          <div class="product-item__price product-item__price_old">1300<span class="rouble">a</span></div><br>
+                          <div class="product-item__price">1240<span class="rouble">a</span></div>
+                        </div>
+                        <button class="product-item__status btn btn_1" type="button"><span class="btn__label">В корзину</span></button>
+                      </footer></a>
+                  </article>
+                  <article class="product-item"><a href="javascript:;" class="product-item__inner">
+                      <div class="product-item__options">
+                        <button class="product-item__favorites btn icon-heart-empty" type="button" title="В избранное"></button>
+                        <button class="product-item__graph btn gly gly-graph" type="button" title=""></button>
+                      </div>
+                      <div class="product-item__img-wrap">
+                        <div class="product-item__img-wrap-inner"><img src="static/img/content/products-list/130x130/item_287-400x400-130x130.jpg" srcset="static/img/content/products-list/130x130/item_287-400x400-130x130.jpg 1x, static/img/content/products-list/260x260/item_287-400x400-260x260.jpg 1.25x" title="Пряжа BBB Zarra" alt="Пряжа BBB Zarra" data-object-fit="contain" onload="objectFit(this)" class="product-item__img">
+                        </div>
+                      </div>
+                      <div class="product-item__col product-item__col_center">
+                        <h3 class="product-item__title">Пряжа BBB Zarra</h3>
+                        <ul class="product-item__properties">
+                          <li>50 гр / 90 м</li>
+                          <li>49 % мериносовая шерсть</li>
+                          <li>51% акрил</li>
+                        </ul>
+                      </div>
+                      <footer class="product-item__footer">
+                        <div class="product-item__price-box">
+                          <div class="product-item__price product-item__price_old">300<span class="rouble">a</span></div><br>
+                          <div class="product-item__price">240<span class="rouble">a</span></div>
+                        </div>
+                        <button class="product-item__status btn btn_1" type="button"><span class="btn__label">В корзину</span></button>
+                      </footer></a>
+                  </article>
+                </div>
+              </div>
+              <!-- /Products-list-->
+              <div class="pagination">
+                <div class="pagination__inner"><a class="pagination__item btn icon-left-open-mini" href="javascript:;"></a><a class="pagination__item btn" href="javascript:;">1</a><span class="pagination__item pagination__item_current btn">2</span><a class="pagination__item btn" href="javascript:;">3</a><span class="pagination__item pagination__item_hellip btn">&hellip;</span><a class="pagination__item btn" href="javascript:;">28</a><a class="pagination__item btn icon-right-open-mini" href="javascript:;"></a>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         <div>&nbsp;</div>
@@ -281,7 +585,7 @@
                 <form action="" class="form-subscribe">
                   <div class="form-subscribe__title">Узнайте о новых поступлениях</div>
                   <input type="email" placeholder="Введите E-mail" class="form-subscribe__field">
-                  <button class="form-subscribe__btn btn btn_4"><span class="btn__label">Отправить</span></button>
+                  <button class="form-subscribe__btn btn btn_4" type="submit"><span class="btn__label">Отправить</span></button>
                 </form>
                 <!-- /Form-subscribe-->
               </div>
