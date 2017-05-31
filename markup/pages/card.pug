@@ -1,0 +1,34 @@
+include ../components/doctype/doctype
+include ../components/header/header
+include ../components/content/content
+include ../components/footer/footer
+include ../components/products-list/products-list
+include ../components/news/news
+include ../components/vk-widget/vk-widget
+include ../components/breadcrumbs/breadcrumbs
+
++doctype(pages.card.title)._main
+  .-wrapper
+    +header(false, [pages.card.url])
+    +content
+      .container-fluid.-grid._1.affix-col-container
+        .row
+          .-grid.__col._1.affix-col-position
+            .-affix-col
+              .-info-order.hidden-xs.hidden-sm
+                .__icon.gly.gly-wallet
+                .__text Минимальная сумма заказа 500 #[span.rouble a]
+
+              //- .-filters
+
+          .-grid.__col._2
+            +breadcrumbs([{title: 'Каталог', url: pages.catalogue.url},
+                {title: 'Вышивание', url: pages.catalogue.url},
+                {title: 'Наборы для вышивания крестом', url: pages.catalogue.url},
+                {title: 'Пряжа ВВВ Zarra', url: pages.card.url}])
+
+            .-section
+              h2.__title
+              +products-list(productsList.slice(0, 4), 'no-old-price', false)
+
+    +footer
