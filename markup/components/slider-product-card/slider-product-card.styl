@@ -9,6 +9,18 @@
     border 1px solid #d4d4d4
     border-radius 2px
     margin-bottom 20px
+    position relative
+    &:before
+      content attr(data-article)
+      position absolute
+      top 8px
+      right 10px
+      z-index 10
+      color $gray-1
+      font-size 13px
+      text-align right
+      width calc(100% - 20px)
+      line-height 1em
 
   &__main-item
     overflow hidden
@@ -22,6 +34,7 @@
 
   &__thumbs
     overflow hidden
+    opacity 0
     .slick-list
       margin 0 -10px
     .slick-slide

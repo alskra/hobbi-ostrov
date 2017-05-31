@@ -1472,8 +1472,7 @@
                                 .animate({ opacity: 1 }, 200, function() {
                                     image
                                         .removeAttr('data-lazy-srcset')
-                                        .removeAttr('data-lazy')
-                                        .removeClass('slick-loading');
+                                        .removeAttr('data-lazy');
                                 });
                             _.$slider.trigger('lazyLoaded', [_, image, imageSource]);
                         });

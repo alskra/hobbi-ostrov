@@ -81,6 +81,9 @@ $(function () {
                 }
 
                 $this.slick('slickGoTo', 0, true);
+                setTimeout(function () {
+                    $this.css('opacity', 1);
+                }, 400);
             });
         }, 200);
     }).triggerHandler('resize.sliderProductCard');
