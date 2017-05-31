@@ -6,6 +6,7 @@ include ../components/products-list/products-list
 include ../components/news/news
 include ../components/vk-widget/vk-widget
 include ../components/breadcrumbs/breadcrumbs
+include ../components/counter/counter
 
 +doctype(pages.card.title)._main
   .-wrapper
@@ -27,8 +28,142 @@ include ../components/breadcrumbs/breadcrumbs
                 {title: 'Наборы для вышивания крестом', url: pages.catalogue.url},
                 {title: 'Пряжа ВВВ Zarra', url: pages.card.url}])
 
+            article.-product-card
+              .row
+                .col-xs-12.col-sm-6
+                  .-slider-product-card
+                    .__main.slick-slider
+                      .slick-slide.loading.loading_before
+                        .-slider-product-card.__main-item
+                          img.__main-img(
+                          data-lazy='static/img/content/slider-product-card/640x640/ece3764b049fb4be6715cb8da0ead2e2-640x640.jpg'
+                          alt=''
+                          title=''
+                          data-object-fit='contain' onload='objectFit(this)'
+                          )
+                      .slick-slide.loading.loading_before
+                        .-slider-product-card.__main-item
+                          img.__main-img(
+                          data-lazy='static/img/content/slider-product-card/640x640/ece3764b049fb4be6715cb8da0ead2e2-640x640.jpg'
+                          alt=''
+                          title=''
+                          data-object-fit='contain' onload='objectFit(this)'
+                          )
+                      .slick-slide.loading.loading_before
+                        .-slider-product-card.__main-item
+                          img.__main-img(
+                          data-lazy='static/img/content/slider-product-card/640x640/ece3764b049fb4be6715cb8da0ead2e2-640x640.jpg'
+                          alt=''
+                          title=''
+                          data-object-fit='contain' onload='objectFit(this)'
+                          )
+                      .slick-slide.loading.loading_before
+                        .-slider-product-card.__main-item
+                          img.__main-img(
+                          data-lazy='static/img/content/slider-product-card/640x640/ece3764b049fb4be6715cb8da0ead2e2-640x640.jpg'
+                          alt=''
+                          title=''
+                          data-object-fit='contain' onload='objectFit(this)'
+                          )
+                    .__thumbs.slick-slider
+                      .slick-slide.loading.loading_before
+                        .-slider-product-card.__thumb-item
+                          img.__thumb-img(
+                          data-lazy='static/img/content/slider-product-card/640x640/ece3764b049fb4be6715cb8da0ead2e2-640x640.jpg'
+                          alt=''
+                          title=''
+                          data-object-fit='contain' onload='objectFit(this)'
+                          )
+                      .slick-slide.loading.loading_before
+                        .-slider-product-card.__thumb-item
+                          img.__thumb-img(
+                          data-lazy='static/img/content/slider-product-card/640x640/ece3764b049fb4be6715cb8da0ead2e2-640x640.jpg'
+                          alt=''
+                          title=''
+                          data-object-fit='contain' onload='objectFit(this)'
+                          )
+                      .slick-slide.loading.loading_before
+                        .-slider-product-card.__thumb-item
+                          img.__thumb-img(
+                          data-lazy='static/img/content/slider-product-card/640x640/ece3764b049fb4be6715cb8da0ead2e2-640x640.jpg'
+                          alt=''
+                          title=''
+                          data-object-fit='contain' onload='objectFit(this)'
+                          )
+                      .slick-slide.loading.loading_before
+                        .-slider-product-card.__thumb-item
+                          img.__thumb-img(
+                          data-lazy='static/img/content/slider-product-card/640x640/ece3764b049fb4be6715cb8da0ead2e2-640x640.jpg'
+                          alt=''
+                          title=''
+                          data-object-fit='contain' onload='objectFit(this)'
+                          )
+                .col-xs-12.col-sm-6.-product-card.__col._2
+                  header.-product-card.__header
+                    h1.__title.h2 Очень качественная пряжа BBB Zarra
+                    .__options
+                      button.btn.icon-heart-empty.__favorites(type='button' title='В избранное')
+                      button.btn.gly.gly-graph.__graph(type='button' title='')
+
+                  .-product-card.__has #[span.__has-icon.icon-check-1]В наличии
+
+                  .-product-card.__prices
+                    span.__price 1240&nbsp;#[span.rouble a]
+                    span.__price-old 1300&nbsp;#[span.rouble a]
+
+                  .-product-card.__btns
+                    +counter()
+                    button.btn.btn_1.__status(type='button') #[span.btn__label В корзину]
+
+                  .-note
+                    p.
+                      Реальный цвет товара может немного отличаться от цвета на фотографии
+
+              .-tabs
+                ul.__nav
+                  li.__nav-item.active
+                    +a().__nav-btn(href="#params" data-toggle="tab") Характеристики и описание
+                  li.__nav-item
+                    +a().__nav-btn(href="#reviews" data-toggle="tab") Отзывы
+                .__content.tab-content
+                  .__content-item.tab-pane.fade.in.active(id="params")
+                    p.
+                      Этот текст не несет никакого смысла, текст ради текста, чтобы показать количество информации,
+                      которая нужна для этого блока. Потом здесь будет ваш текст (кстати, можете его уже готовить)
+                      или текст от нашего копирайтера, который потом нужно будет проверить на фактические ошибки.
+                    .row
+                      .col-xs-12.col-md-9.col-lg-7
+                        ul.-prms
+                          li.__item
+                            .__col._1 Вес (гр)
+                            .__col._2
+                            .__col._3 50
+                          li.__item
+                            .__col._1 Длина (м)
+                            .__col._2
+                            .__col._3 90
+                          li.__item
+                            .__col._1 Состав
+                            .__col._2
+                            .__col._3 49% мериносовая шерсть; 51% акрил
+                          li.__item
+                            .__col._1 Рекомендуемый размер спиц
+                            .__col._2
+                            .__col._3 50
+                          li.__item
+                            .__col._1 Производитель
+                            .__col._2
+                            .__col._3 Италия
+
+                  .__content-item.tab-pane.fade(id="reviews")
+                    p Отзывы...
+
             .-section
-              h2.__title
+              h2.__title.h3 С этим товаром покупают
               +products-list(productsList.slice(0, 4), 'no-old-price', false)
+
+            .-section
+              h2.__title.h3 Вы недавно смотрели
+              +products-list(productsList.slice(3, 7), 'no-old-price', false)
 
     +footer

@@ -1,87 +1,100 @@
 .product-card
-  &__brand
-    height 40px
+  color $gray-1
+  font-size rem-calc(13)
+  line-height (18/13)em
+  padding-bottom 35px
+  margin-bottom 20px
+  border-bottom 1px solid #ddd
+  .tabs
+    font-size $font-size-base
+    line-height $line-height-base
+
+  &__header
     display flex
-    flex-flow column
-    justify-content center
     align-items flex-start
-    margin-bottom 25px
-  &__brand-img
-    max-width 100%
-    max-height 100%
+    margin-bottom rem-calc(20)
+
   &__title
+    flex 1 1 auto
+    overflow hidden
+    margin 0
+
+  &__options
+    flex none
+    margin 15px 0 0 20px
+
+  &__favorites
+    width 22px
+    height 22px
+    color #575757
     font-size 22px
-    margin 0 0 18px
-  &__price-box
-    margin-bottom 25px
-    font-size 26px
     line-height 1em
+    overflow visible
+    &:hover, &:focus, &_active
+      color $brown-1
+
+  &__graph
+    width 22px
+    height 22px
+    color #6e6e6e
+    font-size 20px
+    line-height 1em
+    margin-left 38px
+    &:hover, &:focus, &_active
+      color #575757
+
+  &__has
+    margin 0 0 20px
+
+  &__has-icon
+    display inline-block
+    vertical-align baseline
+    line-height 1em
+    color $green-1
+    margin-right 8px
+
+  &__prices
+    margin-bottom 25px
+
   &__price
     display inline-block
-    font-size 26px
+    vertical-align middle
+    white-space nowrap
+    color $brown-1
+    font-size 30px
     line-height 1em
-    font-weight 500
-    vertical-align top
-    .fa-rub
-      display inline
-      font-size 24px
-      font-weight 300
-    &_new
-      color $red-1
-      margin-right 15px
-    &_old
-      color #d4d4d4
-      font-size 18px
-      text-decoration line-through
-      .fa
-        font-size 17px
-  &__character-row
-    margin-bottom 22px
-    font-size 12px
-    line-height 1.25em
-    .color-item
-      margin-right 15px
-    .select
-      width 100%
-      margin-top 12px
-  &__label
-    text-transform uppercase
-    font-weight 500
-    margin-right 15px
-  &__description
-    font-size 14px
-    line-height (18/14)
-    .ul-list
-      margin-bottom 25px
-      >li
-        padding 0 0 20px
-        page-break-inside avoid
-        &:before
-          content normal
-  &__reviews
-    font-size 14px
-    line-height (18/14)
-  &__description-text
-    margin-bottom 25px
+    margin-right 20px
 
+  &__price-old
+    display inline-block
+    vertical-align middle
+    white-space nowrap
+    color #474747
+    font-size 22px
+    line-height 1em
+    position relative
+    &:before
+      content ''
+      position absolute
+      top 50%
+      left 0
+      right 0
+      margin-top 1px
+      border-top 1px solid
 
-  @media (min-width $screen-sm-min)
-    &__col
-      &_1
-        float right
-        clear right
-        width unquote('calc(' + percentage(268/728) + ' - 17px)')
-      &_2
-        float left
-        width unquote('calc(' + percentage(460/728) + ' - 17px)')
-    &__description
-      .ul-list
-        column-count 2
-        column-gap 20px
+  &__btns
+    display flex
+    align-items flex-start
+    flex-flow row wrap
+    margin-bottom 15px
+    .counter
+      margin-right 20px
+
+  &__col
+    &_2
+      margin-bottom 30px
 
   @media (min-width $screen-md-min)
     &__col
-      &_1
-        width unquote('calc(' + percentage(390/1130) + ' - 25px)')
       &_2
-        width unquote('calc(' + percentage(740/1130) + ' - 25px)')
+        margin-bottom 40px

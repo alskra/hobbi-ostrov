@@ -38,7 +38,7 @@ mixin product-item(item, category, slick)
           li 51% акрил
       footer.__footer
         .__price-box
-          if category !== 'new'
+          if category !== 'new' && category !== 'no-old-price'
             .__price._old !{item.price[0]}#[span.rouble a]
             br
           .__price !{item.price[1]}#[span.rouble a]

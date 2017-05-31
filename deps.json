@@ -13,8 +13,10 @@
     "app_components/modernizr/modernizr-custom.js",
     "bower_components/jquery/dist/jquery.js",
     "bower_components/jquery-touch-events/src/jquery.mobile-events.js",
+    "app_components/bootstrap/js/transition.js",
     "app_components/bootstrap/js/dropdown.js",
     "app_components/bootstrap/js/affix.js",
+    "app_components/bootstrap/js/tab.js",
     "app_components/slick-carousel/add-on/slick.js",
     "app_components/ion.rangeSlider-2.1.7/js/ion-rangeSlider/ion.rangeSlider.js",
     "app_components/Igor10k-ikSelect-d5a1480/src/jquery.ikSelect.js"
