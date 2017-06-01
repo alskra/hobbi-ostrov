@@ -1,39 +1,90 @@
 .menu-catalogue
   display none
-  color white
-  font-size 15px
-  font-weight 700
-  line-height round(18/15, 2)em
-  text-transform uppercase
   background-color #90c04b
 
   &__item
-    &_current
-      &>{$p}__btn
-        background-color #6f9d39
-
     &.opened
       &>{$p}__btn
-        background-color #6f9d39
+        &_lvl_1
+          &, &:hover, &:focus
+            background-color #6f9d39
+          &>{$p}__icon
+            &.icon-plus-1
+              display none
+            &.icon-minus-1
+              display block
 
-      &>{$p}__btn>{$p}__icon
-        &.icon-plus-1
-          display none
+        &_lvl_2
+          &, &:hover, &:focus
+            background-color #6f9d39
 
-        &.icon-minus-1
-          display block
+        &_lvl_3
+          &, &:hover, &:focus
+            background-color #6f9d39
+
+    &_current
+      &>{$p}__btn
+        &_lvl_1
+          &, &:hover, &:focus
+            background-color #6f9d39
+
+        &_lvl_2
+          &, &:hover, &:focus
+            background-color #6f9d39
+
+        &_lvl_3
+          &, &:hover, &:focus
+            background-color #6f9d39
 
   &__btn
-    display flex
-    align-items flex-start
-    padding 16px 10px
-    color inherit
-    text-decoration none
-    background-color #90c04b
-    &:hover, &:focus
+    display block
+    &_lvl_1
+      display flex
+      align-items flex-start
       color white
       text-decoration none
-      background-color #6f9d39
+      font-size 15px
+      font-weight 700
+      line-height (18/15)em
+      text-transform uppercase
+      padding 16px 10px
+      background-color #90c04b
+      &:hover, &:focus
+        color white
+        text-decoration none
+        background-color #6f9d39
+
+    &_lvl_2
+      display flex
+      align-items flex-start
+      color white
+      text-decoration none
+      font-size 15px
+      font-weight 700
+      line-height (18/15)em
+      text-transform uppercase
+      padding 16px 10px 16px 20px
+      background-color #90c04b
+      &:hover, &:focus
+        color white
+        text-decoration none
+        background-color #6f9d39
+
+    &_lvl_3
+      display flex
+      align-items flex-start
+      color white
+      text-decoration none
+      font-size 15px
+      font-weight 700
+      line-height (18/15)em
+      text-transform uppercase
+      padding 16px 10px 16px 40px
+      background-color #90c04b
+      &:hover, &:focus
+        color white
+        text-decoration none
+        background-color #6f9d39
 
   &__label
     display block
@@ -43,41 +94,102 @@
   &__icon
     display block
     flex none
-    font-size 18px
-    text-align center
-    width 20px
 
-    &.icon-minus-1
-      display none
+    &_lvl_1
+      font-size 18px
+      text-align center
+      width 20px
+      &.icon-minus-1
+        display none
+      &.icon-menu-3
+        font-size 15px
 
-    &.icon-menu-3
-      font-size 15px
+    &_lvl_2
+      font-size 18px
+      text-align center
+      width 20px
+
+    &_lvl_3
+      font-size 18px
+      text-align center
+      width 20px
 
   @media (min-width $screen-md-min)
     margin-bottom 20px
     background-color #f9f9f9
 
     &__item
-      &_lvl_2
-        &+&
-          border-top 1px solid #e5e5e5
+      &.opened
+        &>{$p}__btn
+          &_lvl_1
+            &, &:hover, &:focus
+              background-color #6f9d39
+
+          &_lvl_2
+            &, &:hover, &:focus
+              color $green-6
+              background-color white
+
+          &_lvl_3
+            &, &:hover, &:focus
+              color $green-6
+              background-color white
 
       &_current
         &>{$p}__btn
+          &_lvl_1
+            &, &:hover, &:focus
+              background-color #6f9d39
+
           &_lvl_2
-            color $green-6
-            background-color #f9f9f9
-            &:before
-              border-right-color $green-1
+            &, &:hover, &:focus
+              color $green-6
+              background-color white
+              &:before
+                border-right-color $green-1
+
+          &_lvl_3
+            &, &:hover, &:focus
+              color $green-6
+              background-color white
+              &:before
+                //border-right-color $green-1
+
+      &_lvl_2
+        position relative
+        &+&
+          border-top 1px solid #e5e5e5
+        &:last-child
+          border-radius 0px 0px 2px 2px
+          &>{$p}__btn
+            border-radius 0px 0px 2px 2px
+
+      &_lvl_3
+        &+&
+          border-top 1px solid #e5e5e5
+        &:last-child
+          border-radius 0px 2px 0px 0px
+          &>{$p}__btn
+            border-radius 0px 2px 0px 0px
+        &:last-child
+          border-radius 0px 2px 0px 0px
+          &>{$p}__btn
+            border-radius 0px 2px 0px 0px
 
     &__btn
-      padding 16px 15px
-
       &_lvl_1
+        padding 16px 15px
         background-color #6f9d39
+        &:hover, &:focus
+          background-color #6f9d39
 
       &_lvl_2
         color #747474
+        font-size 14px
+        font-weight 400
+        line-height (18/14)em
+        text-transform none
+        padding 16px 15px
         position relative
         background-color #f9f9f9
         &:before
@@ -88,30 +200,56 @@
           left -1px
           border-right 5px solid transparent
           transition inherit
-        &:last-child
-          border-radius 0px 0px 2px 2px
         &:hover, &:focus
           color $green-6
-          background-color #f9f9f9
-          &:before
-            border-right-color $green-1
+          background-color white
+
+      &_lvl_3
+        color #747474
+        font-size 14px
+        font-weight 400
+        line-height (18/14)em
+        text-transform none
+        padding 16px 15px
+        position relative
+        background-color #f9f9f9
+        &:before
+          content ''
+          position absolute
+          top -1px
+          bottom -1px
+          left -1px
+          border-right 5px solid transparent
+          transition inherit
+        &:hover, &:focus
+          color $green-6
+          background-color white
 
     &__icon
-      width auto
-
       &_lvl_1
+        width auto
         margin-right 10px
 
       &_lvl_2
+        width auto
+        margin-left 10px
+
+      &_lvl_3
+        width auto
         margin-left 10px
 
     &__submenu
       &_lvl_1
         display block !important
-        font-size 14px
-        font-weight 400
-        line-height round(18/14, 2)em
-        text-transform none
         border 1px solid #d4d4d4
         border-top 0
         border-radius 0px 0px 2px 2px
+
+      &_lvl_2
+        max-width 210px
+        position absolute
+        top -1px
+        left 100%
+        background-color #f9f9f9
+        border 1px solid #d4d4d4
+        border-radius 0px 2px 2px 0px

@@ -30,16 +30,25 @@ $(function () {
         $(window).off('.affix');
         $('.affix-col').removeData('bs.affix').removeClass('affix affix-top affix-bottom');
         $('.affix-col-position').css('min-height', '');
+        setTimeout(function () {
+            $(window).off('.affix');
+            $('.affix-col').removeData('bs.affix').removeClass('affix affix-top affix-bottom');
+            $('.affix-col-position').css('min-height', '');
+        }, 200);
 
         if (Modernizr.mq('(max-width: ' + ($screenMd - 1) + 'px)')){
             $('.header__hidden-top').prependTo('.header__hidden');
 
             $('.menu-catalogue').insertAfter('.menu__item_lvl_1:eq(0)').show();
+
+            $('.filters').insertAfter('.categories-list');
         }
         else {
             $('.header__hidden-top').prependTo('.header .grid__col_2');
 
             $('.menu-catalogue').prependTo('.affix-col').show();
+
+            $('.filters').appendTo('.affix-col');
 
             setTimeout(function () {
                 $('.affix-col').css('top', '').affix({

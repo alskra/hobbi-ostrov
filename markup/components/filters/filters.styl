@@ -39,12 +39,17 @@
         text-decoration none
 
   &__results-lbl-i
+    display inline-block
+    vertical-align top
     padding 3px 10px
     background-color $green-1
     border-radius 2px
 
+  &__hidden
+    display none
 
-  @media (min-width $screen-sm-min)
+
+  @media (min-width 640px)
     &__form
       display flex
       flex-flow row wrap
@@ -80,3 +85,6 @@
       position relative
       left -50%
       box-shadow 0 1px 10px rgba(80, 80, 80, 0.31)
+
+    &__hidden
+      display block !important

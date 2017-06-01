@@ -1,13 +1,15 @@
 .product-card
   color $gray-1
-  font-size rem-calc(13)
-  line-height (18/13)em
   padding-bottom 35px
   margin-bottom 20px
   border-bottom 1px solid #ddd
   .tabs
     font-size $font-size-base
     line-height $line-height-base
+
+  &__col_2
+    font-size rem-calc(13)
+    line-height (18/13)em
 
   &__header
     display flex
@@ -17,11 +19,11 @@
   &__title
     flex 1 1 auto
     overflow hidden
-    margin 0
+    margin 0 0 rem-calc(20)
 
   &__options
     flex none
-    margin 15px 0 0 20px
+    margin 0
 
   &__favorites
     width 22px
@@ -39,7 +41,7 @@
     color #6e6e6e
     font-size 20px
     line-height 1em
-    margin-left 38px
+    margin-left 20px
     &:hover, &:focus, &_active
       color #575757
 
@@ -54,6 +56,7 @@
     margin-right 8px
 
   &__prices
+    text-align center
     margin-bottom 25px
 
   &__price
@@ -84,6 +87,7 @@
 
   &__btns
     display flex
+    justify-content center
     align-items flex-start
     flex-flow row wrap
     margin-bottom 15px
@@ -94,7 +98,20 @@
     &_2
       margin-bottom 30px
 
+  @media (min-width $screen-sm-min)
+    &__prices
+      text-align left
+
+    &__btns
+      justify-content flex-start
+
   @media (min-width $screen-md-min)
+    &__title
+      margin 0
+
+    &__options
+      margin 15px 0 0 20px
+
     &__col
       &_2
         margin-bottom 40px
