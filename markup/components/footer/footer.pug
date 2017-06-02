@@ -11,15 +11,16 @@ mixin footer()
           .-grid.__col._1
             +form-subscribe()
           .-grid.__col._2
-            .-footer.__title Важная информация
+            .-footer.__title._1 Важная информация
             +menu-foot(menuFootList)
           .-grid.__col._3
-            .-footer.__title Контактные данные
-            p
-              strong: a.-footer.__tel(href='tel:+79999999999') +7 (999) 999 99 99
-            .-footer.__pay
-              p Принимаем к оплате
-              +pay-systems()
+            .-footer.__title._2 Контактные данные
+            .-footer.__contacts
+              p
+                strong: a.-footer.__tel(href='tel:+79999999999') +7 (999) 999 99 99
+              .-footer.__pay
+                p Принимаем к оплате
+                +pay-systems()
     .__bottom
       .container-fluid.-grid._2
         .row

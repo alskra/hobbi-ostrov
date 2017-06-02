@@ -32,7 +32,7 @@ $(function () {
         if (Modernizr.mq('(max-width: ' + ($screenMd - 1) + 'px)')){
             $('.header__hidden-top').prependTo('.header__hidden');
 
-            $('.menu-catalogue').insertAfter('.menu__item_lvl_1:eq(0)').show();
+            $('.menu-catalogue').insertBefore('.menu__item_lvl_1:eq(0)').show();
 
             $('.filters').insertAfter('.categories-list');
 

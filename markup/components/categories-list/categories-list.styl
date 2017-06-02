@@ -14,14 +14,15 @@
     color $gray-1
     font-size 15px
     line-height 1.25em
-    width calc(50% - 20px)
-    margin 0 10px 20px
+    width calc(100% - 20px)
+    margin 0 10px 10px
 
   &__item-inner
-    display block
+    display flex
+    align-items flex-start
     color $gray-1
     text-decoration none
-    padding 20px
+    padding 5px 10px
     position relative
     background-color white
     border 1px solid #d4d4d4
@@ -42,9 +43,11 @@
       box-shadow 0 2px 7px rgba(80, 80, 80, 0.17)
 
   &__item-img-wrap
+    flex none
     overflow hidden
-    padding-top 80.5%
-    margin-bottom 10px
+    width 50px
+    padding-top 50px
+    margin 0 10px 0 0
     position relative
 
   &__item-img
@@ -53,7 +56,9 @@
     left 0
 
   &__caption
-    text-align center
+    flex 1 1 auto
+    align-self center
+    text-align left
     text-overflow ellipsis
     height 1.25em
 
@@ -68,6 +73,19 @@
 
     &__item
       width calc(100%/3 - 20px)
+      margin 0 10px 20px
+
+    &__item-inner
+      display block
+      padding 20px
+
+    &__item-img-wrap
+      width auto
+      padding-top 80.5%
+      margin 0 0 10px
+
+    &__caption
+      text-align center
 
   @media (min-width 1024px)
     max-width 215px*4 + 20px*3

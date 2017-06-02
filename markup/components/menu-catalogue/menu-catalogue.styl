@@ -12,15 +12,23 @@
             &.icon-plus-1
               display none
             &.icon-minus-1
-              display block
+              display flex
 
         &_lvl_2
           &, &:hover, &:focus
-            background-color #6f9d39
+            color $green-6
+            background-color white
+            &:before
+              border-right-color $green-1
+          &>{$p}__icon
+            transform rotate(-90deg)
 
         &_lvl_3
           &, &:hover, &:focus
-            background-color #6f9d39
+            color $green-6
+            background-color white
+            &:before
+              border-right-color $green-1
 
     &_current
       &>{$p}__btn
@@ -30,11 +38,24 @@
 
         &_lvl_2
           &, &:hover, &:focus
-            background-color #6f9d39
+            color $green-6
+            background-color white
+            &:before
+              border-right-color $green-1
 
         &_lvl_3
           &, &:hover, &:focus
-            background-color #6f9d39
+            color $green-6
+            background-color white
+            &:before
+              border-right-color $green-1
+
+    &_lvl_2
+      &+&
+        border-top 1px solid #e5e5e5
+
+    &_lvl_3
+      border-top 1px solid #e5e5e5
 
   &__btn
     display block
@@ -47,8 +68,8 @@
       font-weight 700
       line-height (18/15)em
       text-transform uppercase
-      padding 16px 10px
-      background-color #90c04b
+      padding 16px 15px
+      background-color #6f9d39
       &:hover, &:focus
         color white
         text-decoration none
@@ -57,34 +78,56 @@
     &_lvl_2
       display flex
       align-items flex-start
-      color white
+      color #747474
       text-decoration none
-      font-size 15px
-      font-weight 700
-      line-height (18/15)em
-      text-transform uppercase
-      padding 16px 10px 16px 20px
-      background-color #90c04b
+      font-size 14px
+      font-weight 400
+      line-height (18/14)em
+      text-transform none
+      padding 16px 15px
+      position relative
+      background-color #f9f9f9
+      &:before
+        content ''
+        position absolute
+        top -1px
+        bottom -1px
+        left -1px
+        border-right 5px solid transparent
+        transition inherit
       &:hover, &:focus
-        color white
+        color $green-6
         text-decoration none
-        background-color #6f9d39
+        background-color white
+        &:before
+          border-right-color $green-1
 
     &_lvl_3
       display flex
       align-items flex-start
-      color white
+      color #747474
       text-decoration none
-      font-size 15px
-      font-weight 700
-      line-height (18/15)em
-      text-transform uppercase
-      padding 16px 10px 16px 40px
-      background-color #90c04b
+      font-size 14px
+      font-weight 400
+      line-height (18/14)em
+      text-transform none
+      padding 16px 15px
+      position relative
+      background-color #f9f9f9
+      &:before
+        content ''
+        position absolute
+        top -1px
+        bottom -1px
+        left -1px
+        border-right 5px solid transparent
+        transition inherit
       &:hover, &:focus
-        color white
+        color $green-6
         text-decoration none
-        background-color #6f9d39
+        background-color white
+        &:before
+          border-right-color $green-1
 
   &__label
     display block
@@ -96,23 +139,36 @@
     flex none
 
     &_lvl_1
+      display flex
+      justify-content center
+      align-items center
       font-size 18px
-      text-align center
-      width 20px
+      width 50px
+      height 50px
+      margin -16px -15px -16px 10px
       &.icon-minus-1
         display none
       &.icon-menu-3
         font-size 15px
 
     &_lvl_2
+      display flex
+      justify-content center
+      align-items center
       font-size 18px
-      text-align center
-      width 20px
+      width 50px
+      height 50px
+      margin -16px -15px -16px 10px
+      transform rotate(90deg)
 
     &_lvl_3
+      display flex
+      justify-content center
+      align-items center
       font-size 18px
-      text-align center
-      width 20px
+      width 50px
+      height 50px
+      margin -16px -15px -16px 10px
 
   @media (min-width $screen-md-min)
     margin-bottom 20px
@@ -129,6 +185,8 @@
             &, &:hover, &:focus
               color $green-6
               background-color white
+            &>{$p}__icon
+              transform rotate(0deg)
 
           &_lvl_3
             &, &:hover, &:focus
@@ -163,6 +221,7 @@
             border-radius 0px 0px 2px 2px
 
       &_lvl_3
+        border-top 0
         &+&
           border-top 1px solid #e5e5e5
         &:last-child
@@ -227,19 +286,24 @@
     &__icon
       &_lvl_1
         width auto
+        margin-left 0
         margin-right 10px
 
       &_lvl_2
         width auto
         margin-left 10px
+        margin-right 0
+        transform rotate(0deg)
 
       &_lvl_3
         width auto
         margin-left 10px
+        margin-right 0
 
     &__submenu
       &_lvl_1
         display block !important
+        opacity 1 !important
         border 1px solid #d4d4d4
         border-top 0
         border-radius 0px 0px 2px 2px
