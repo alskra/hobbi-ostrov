@@ -22,13 +22,13 @@ $(function () {
         if (Modernizr.mq('(min-width: ' + ($screenMd) + 'px)')) {
             e.preventDefault();
 
-            $(this).children('.menu-catalogue__submenu').addClass('opened').stop(true, false).animate({display: 'none'}).delay(50).fadeIn(100).parent().addClass('opened');
+            $(this).children('.menu-catalogue__submenu').addClass('opened').stop(true, false).hide().delay(100).fadeIn(100).parent().addClass('opened');
         }
     }).on('mouseleave', '.menu-catalogue__item_submenu', function (e) {
         if (Modernizr.mq('(min-width: ' + ($screenMd) + 'px)')) {
             e.preventDefault();
 
-            $(this).children('.menu-catalogue__submenu').removeClass('opened').stop(true, false).fadeOut(0).parent().removeClass('opened');
+            $(this).children('.menu-catalogue__submenu').removeClass('opened').stop(true, false).hide().parent().removeClass('opened');
         }
     });
 });
