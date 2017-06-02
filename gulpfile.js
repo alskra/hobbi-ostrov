@@ -32,9 +32,13 @@ const autoprefixer = require('autoprefixer-stylus');
 const emitty = require('emitty').setup('markup', 'pug');
 const realFavicon = require('gulp-real-favicon');
 const fs = require('fs');
-const cache  = require('gulp-memory-cache');
 const zip = require('gulp-zip');
 const merge = require('merge-stream');
+const cache = require('gulp-cached');
+const remember = require('gulp-remember');
+const posthtmlBemSugar = require('posthtml-bem-sugar');
+const posthtmlBem = require('posthtml-bem');
+const getClassesFromHtml = require('get-classes-from-html');
 
 global.isDevelopment = process.env.NODE_ENV !== 'production';
 global.depsObj = {};
@@ -132,51 +136,45 @@ gulp.task('check-for-favicon-update', function(done) {
 
 function getDepsObj(file) {
     Array.isArray(depsObj[file.stem]) ? depsObj[file.stem].splice(0, depsObj[file.stem].length) : depsObj[file.stem] = [];
-    var parser = new htmlparser.Parser({
-        onopentag: function(name, attribs){
-            if(attribs.class){
-                attribs.class.split(' ').forEach(function(className) {
-                    (depsObj[file.stem].indexOf(className) === -1) && (className.indexOf('__') === -1) && (className.indexOf('_') === -1) && depsObj[file.stem].push(className);
-                });
-            }
-        }
-    }, {decodeEntities: true});
-    parser.write(file.contents.toString());
-    parser.end();
+
+    getClassesFromHtml(file.contents.toString()).forEach(function (className, i, arr) {
+        (depsObj[file.stem].indexOf(className) === -1) && (className.indexOf('__') === -1) && (className.indexOf('_') === -1) && depsObj[file.stem].push(className);
+    });
 
     return file;
 }
 
 gulp.task('html', gulp.series(
-    function getHTML(){
-        return gulp.src(['markup/pages/*.pug'])
-            .pipe(gulpIf(global.isWatch, emitty.stream(global.emittyChangedFile)))
-            .pipe(pug({
+    function getHTML() {
+        return combiner(
+            gulp.src(['markup/pages/*.pug']),
+            gulpIf(global.isWatch, emitty.stream(global.emittyChangedFile)),
+            pug({
                 pretty: true,
                 locals: {
                     isDevelopment: global.isDevelopment,
                     pkg: JSON.parse(fs.readFileSync(pkgData)),
                     faviconCode: JSON.parse(fs.readFileSync(FAVICON_DATA_FILE)).favicon.html_code
                 }
-            }))
-            .on('error', notify.onError(function(err) {
-                return {
-                    title: 'HTML',
-                    message: err.message
-                }
-            }))
-            .pipe(posthtml([
-                require('posthtml-bem-sugar')({
+            }),
+            posthtml([
+                posthtmlBemSugar({
                     blockPrefix: '-',
                     elemPrefix: '__',
                     modPrefix: '_',
                     modDlmtr: '_'
                 }),
-                require('posthtml-bem')()
-            ]))
-            .pipe(map(function (file, cb) {cb(null, getDepsObj(file));}))
-            .pipe(debug({title: 'HTML'}))
-            .pipe(gulp.dest('build/'));
+                posthtmlBem()
+            ]),
+            map(function (file, cb) {cb(null, getDepsObj(file))}),
+            debug({title: 'HTML'}),
+            gulp.dest('build/')
+        ).on('error', notify.onError(function(err) {
+            return {
+                title: 'HTML',
+                message: err.message
+            }
+        }));
     },
     function getDepsArr(done) {
         depsArr.splice(0, depsArr.length);
@@ -221,17 +219,25 @@ gulp.task('css:components', function () {
 
 gulp.task('css:blocks', function () {
     return combiner(
-        gulp.src(['app_components/bootstrap/css/variables.styl', 'app_components/bootstrap/css/mixins.styl'].concat(depsArr.map(function (dep) {return path.join(dep, '*.styl');}))),
+        gulp.src(depsArr.map(function (dep) {return path.join(dep, '*.styl');}))
+            .on('data', function (file) {
+                file.dirname = file.cwd;
+                //console.log(file.relative);
+            }),
         sourcemaps.init(),
-        concat({path: 'blocks.styl'}),
+        cache('stylus'),
+        debug({title: 'CSS:blocks-after-cache'}),
         stylus({
             'include css': true,
-            'disable cache': true,
+            import: ['app_components/bootstrap/css/variables.styl', 'app_components/bootstrap/css/mixins.styl'],
             use: [autoprefixer({
                 browsers: browsers,
                 cascade: false
             })]
         }),
+        remember('stylus'),
+        debug({title: 'CSS:blocks-after-remember'}),
+        concat({path: 'blocks.css'}),
         sourcemaps.write(),
         debug({title: 'CSS:blocks'}),
         gulp.dest('build/static/css/')
@@ -440,7 +446,12 @@ gulp.task('watch', function() {
     //CSS
     gulp.watch(['app_components/**/*.{css,styl}', 'markup/static/**/*.{css,styl}'], gulp.series('css:components', function reloadCSS_components(done) {
         reload('build/static/css/components.css'); done();
-    }));
+    })).on('change', function (event) {
+        if (event.type === 'deleted') { // if a file is deleted, forget about it
+            delete cache.caches['stylus'][event.path];
+            remember.forget('stylus', event.path);
+        }
+    });
     gulp.watch(['app_components/bootstrap/css/variables.styl', 'app_components/bootstrap/css/mixins.styl', 'markup/components/**/*.styl'], gulp.series('css:blocks', function reloadCSS_blocks(done) {
         reload('build/static/css/blocks.css'); done();
     }));

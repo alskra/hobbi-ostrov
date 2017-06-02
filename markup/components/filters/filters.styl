@@ -2,6 +2,7 @@
   color #747474
   .aside__header
     margin -1px -1px 0
+    cursor pointer
 
   &.aside
     padding 0
@@ -64,6 +65,9 @@
         align-items flex-end
 
   @media (min-width $screen-md-min)
+    .aside__header
+      cursor default
+
     &__form
       display block
 
@@ -88,3 +92,4 @@
 
     &__hidden
       display block !important
+      height auto !important

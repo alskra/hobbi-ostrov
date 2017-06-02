@@ -82,7 +82,6 @@ $max-width-prod-list = 215px
 
   @media (min-width $screen-sm-min)
     max-width $max-width-prod-list*3 + 20px*2
-    margin 0
     .product-item
       width calc(100%/3 - 20px)
 
@@ -90,6 +89,9 @@ $max-width-prod-list = 215px
       max-width none
       .product-item
         width 100%
+
+  @media (min-width $screen-md-min)
+    margin 0
 
   @media (min-width $screen-lg-min)
     max-width $max-width-prod-list*4 + 20px*3

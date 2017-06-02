@@ -25,17 +25,17 @@
     & {$p}__title-inner
       overflow hidden
 
-  @media (min-width $screen-sm-min)
+  @media (min-width $screen-md-min)
     &_1
       & {$p}__header
         max-width 685px
 
-  @media (min-width $screen-md-min)
-    &_1
-      & {$p}__header
-        max-width none
-
       & {$p}__title
         &:before, &:after
           width 80px
+
+  @media (min-width $screen-lg-min)
+    &_1
+      & {$p}__header
+        max-width none
 
