@@ -1,5 +1,6 @@
 $(function () {
     $('body').on('click', '.filters .aside__header', function () {
-        $('.filters__hidden').slideToggle(200);
+        $('html, body').toggleClass('open_left');
+        $('.wrapper').toggleClass('wrapper_open_left');
     });
 });

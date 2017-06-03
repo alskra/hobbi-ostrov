@@ -1,5 +1,7 @@
 .wrapper
   position relative
+  left 0
+  z-index 1
   will-change auto
   min-height 100vh
   flex none
@@ -7,3 +9,13 @@
   overflow hidden
   display flex
   flex-flow column
+  background $body-bg
+  box-shadow 0 0 10px rgba(black, 0.5)
+  transition 0.2s linear
+
+  &_open_left
+    left 210px
+
+  @media (min-width $screen-md-min)
+    &_open_left
+      left 0

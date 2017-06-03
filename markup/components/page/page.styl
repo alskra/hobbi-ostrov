@@ -1,5 +1,6 @@
 .page
   display flex
+
   &_home-project
     display block
     & {$p}__header
@@ -12,6 +13,12 @@
       small
         color inherit
 
+.open_left
+  overflow hidden
+
+@media (min-width $screen-md-min)
+  .open_left
+    overflow visible
 
 @keyframes loading
   100%

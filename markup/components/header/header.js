@@ -35,6 +35,7 @@ $(function () {
             $('.menu-catalogue').insertBefore('.menu__item_lvl_1:eq(0)').show();
 
             $('.filters').insertAfter('.categories-list');
+            $('.filters__hidden').insertBefore('.wrapper').show();
 
             $affixColContainer.css('min-height', '');
 
@@ -47,6 +48,7 @@ $(function () {
             $('.menu-catalogue').prependTo($affixCol).show();
 
             $('.filters').appendTo($affixCol);
+            $('.filters__hidden').appendTo('.filters').show();
 
             setTimeout(function () {
                 $affixColContainer.css('min-height', $affixCol.outerHeight(false));
@@ -69,7 +71,7 @@ $(function () {
 
                 $affixCol.affix('checkPosition');
 
-                console.log($affixCol.data('bs.affix').options.offset);
+                //console.log($affixCol.data('bs.affix').options.offset);
             }, 200);
         }
     }).triggerHandler('resize.Header');
